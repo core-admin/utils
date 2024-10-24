@@ -1,5 +1,6 @@
 import fs from 'fs';
-import path from 'path';
+import { fileURLToPath } from 'url';
+import path, { dirname } from 'path';
 import esbuild from 'rollup-plugin-esbuild';
 import dts from 'rollup-plugin-dts';
 import resolve from '@rollup/plugin-node-resolve';
@@ -8,43 +9,9 @@ import json from '@rollup/plugin-json';
 import alias from '@rollup/plugin-alias';
 import del from 'rollup-plugin-delete';
 
-const PKG_NAME = 'Utils'; // 可以从 package.json 中读取
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
-// const getOutput = (input, format, extension) => {
-//   const dir = 'dist';
-//   const fileName = path.basename(input, '.ts');
-//   const output = {
-//     file: `${dir}/${fileName}.${extension}`,
-//     format: format,
-//   };
-
-//   if (format === 'umd') {
-//     output.name = PKG_NAME;
-//   }
-
-//   return output;
-// };
-
-// const entry = 'src/index.ts';
-
-const entries = ['src/index.ts'];
-
-const plugins = [
-  del({ targets: 'dist/*' }),
-  alias({
-    entries: [{ find: /^node:(.+)$/, replacement: '$1' }],
-  }),
-  resolve({
-    preferBuiltins: true,
-  }),
-  json(),
-  commonjs(),
-  esbuild({
-    target: 'es5',
-  }),
-];
-
-// 自定义插件，用于将 typings 目录下的所有 .d.ts 文件内容添加到生成的 .d.ts 文件中
 const appendTypings = () => {
   return {
     name: 'append-typings',
@@ -66,49 +33,96 @@ const appendTypings = () => {
   };
 };
 
-export default [
-  ...entries.map(input => ({
-    input,
-    // output: [getOutput(entry, 'esm', 'mjs'), getOutput(entry, 'cjs', 'cjs'), getOutput(entry, 'umd', 'js')],
+// 获取 src 目录下的所有 .ts 文件
+const getDtsEntries = () => {
+  const entries = {};
+  const srcDir = path.resolve(__dirname, 'src');
+
+  function traverse(dir) {
+    fs.readdirSync(dir).forEach(file => {
+      const filePath = path.join(dir, file);
+      const stat = fs.statSync(filePath);
+      if (stat.isDirectory()) {
+        traverse(filePath);
+      } else if (file.endsWith('.ts') && !file.endsWith('.d.ts')) {
+        const relativePath = path.relative(srcDir, filePath);
+        const entryName = relativePath.replace(/\.ts$/, '');
+        entries[entryName] = filePath;
+      }
+    });
+  }
+
+  traverse(srcDir);
+  return entries;
+};
+
+const plugins = [
+  del({ targets: 'dist/*' }),
+  alias({
+    entries: [{ find: /^node:(.+)$/, replacement: '$1' }],
+  }),
+  resolve({
+    preferBuiltins: true,
+  }),
+  json(),
+  commonjs(),
+  esbuild({
+    target: 'es2015',
+  }),
+];
+
+const config = [
+  {
+    input: 'src/index.ts',
     output: [
       {
-        file: input.replace('src/', 'dist/').replace('.ts', '.mjs'),
+        dir: 'dist/esm',
         format: 'esm',
-        // sourcemap: true,
+        preserveModules: true,
+        entryFileNames: '[name].mjs',
       },
       {
-        file: input.replace('src/', 'dist/').replace('.ts', '.cjs'),
+        dir: 'dist/cjs',
         format: 'cjs',
-        // sourcemap: true,
+        preserveModules: true,
+        entryFileNames: '[name].cjs',
       },
       {
-        file: input.replace('src/', 'dist/').replace('.ts', '.js'),
+        file: 'dist/umd/index.js',
         format: 'umd',
-        name: PKG_NAME,
-        // sourcemap: true,
+        name: 'Utils',
       },
     ],
     external: [],
     plugins,
-  })),
-  ...entries.map(input => ({
-    input,
-    // output: [getOutput(input, 'esm', 'd.ts')],
+  },
+  {
+    input: 'src/index.ts',
+    output: {
+      file: 'dist/index.d.ts',
+      format: 'esm',
+    },
+    plugins: [dts({ respectExternal: true }), appendTypings()],
+  },
+  {
+    input: getDtsEntries(),
     output: [
       {
-        file: input.replace('src/', 'dist/').replace('.ts', '.d.mts'),
+        dir: 'dist/esm',
         format: 'esm',
+        preserveModules: true,
+        preserveModulesRoot: 'src',
       },
       {
-        file: input.replace('src/', 'dist/').replace('.ts', '.d.ts'),
-        format: 'esm',
-      },
-      {
-        file: input.replace('src/', 'dist/').replace('.ts', '.d.cts'),
+        dir: 'dist/cjs',
         format: 'cjs',
+        preserveModules: true,
+        preserveModulesRoot: 'src',
       },
     ],
     external: [],
-    plugins: [dts({ respectExternal: true }), appendTypings()],
-  })),
+    plugins: [dts({ respectExternal: true })],
+  },
 ];
+
+export default config;

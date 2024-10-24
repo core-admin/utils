@@ -8,6 +8,9 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "declaration": true,
+    "declarationDir": "./dist",
+    "emitDeclarationOnly": true,
     "lib": [
       "ESNext",
       "DOM",
