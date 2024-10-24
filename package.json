@@ -1,18 +1,37 @@
 {
-  "name": "@core-admin/utils",
+  "private": false,
+  "name": "@hubxu/utils",
   "version": "0.0.1",
   "type": "module",
   "description": "Opinionated collection of common JavaScript TypeScript utils",
-  "author": "Antxu <fslfsl.x@gmail.com>",
+  "author": "Xuke <fslfsl.x@gmail.com>",
   "homepage": "https://github.com/core-admin/utils",
   "repository": {
     "type": "git",
-    "url": "https://github.com/core-admin/utils.git"
+    "url": "git+https://github.com/core-admin/utils.git"
   },
   "keywords": [
     "utils"
   ],
   "license": "MIT",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/esm/*.mjs",
+      "require": "./dist/cjs/*.cjs",
+      "types": "./dist/*.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
