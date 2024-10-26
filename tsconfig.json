@@ -1,25 +1,24 @@
 {
   "compilerOptions": {
-    "module": "esnext",
     "target": "ES2015",
-    "strict": true,
-    "strictNullChecks": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "declaration": true,
-    "declarationDir": "./dist",
-    "emitDeclarationOnly": true,
     "lib": [
       "ESNext",
       "DOM",
       "DOM.Iterable"
     ],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "declaration": true,
+    "declarationDir": "./dist",
+    "emitDeclarationOnly": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "include": [
     "src/**/*.ts",
-    "src/**/*.d.ts",
-    "typings"
+    "src/**/*.d.ts"
   ]
 }

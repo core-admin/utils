@@ -1,60 +1,31 @@
-import fs from 'fs';
-import { fileURLToPath } from 'url';
-import path, { dirname } from 'path';
-import esbuild from 'rollup-plugin-esbuild';
-import dts from 'rollup-plugin-dts';
-import resolve from '@rollup/plugin-node-resolve';
+import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
-import alias from '@rollup/plugin-alias';
+import resolve from '@rollup/plugin-node-resolve';
 import del from 'rollup-plugin-delete';
+import dts from 'rollup-plugin-dts';
+import esbuild from 'rollup-plugin-esbuild';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const appendTypings = () => {
-  return {
-    name: 'append-typings',
-    writeBundle(options, bundle) {
-      const dtsFile = Object.keys(bundle).find(fileName => fileName.endsWith('.d.ts'));
-      if (dtsFile) {
-        const typingsDir = path.resolve(process.cwd(), 'typings');
-        if (fs.existsSync(typingsDir)) {
-          const typingsContent = fs
-            .readdirSync(typingsDir)
-            .filter(file => file.endsWith('.d.ts'))
-            .map(file => fs.readFileSync(path.join(typingsDir, file), 'utf-8'))
-            .join('\n\n');
-          const outputPath = path.resolve(options.dir || path.dirname(options.file), dtsFile);
-          fs.appendFileSync(outputPath, `\n\n${typingsContent}`);
-        }
-      }
-    },
-  };
-};
-
-// 获取 src 目录下的所有 .ts 文件
-const getDtsEntries = () => {
-  const entries = {};
-  const srcDir = path.resolve(__dirname, 'src');
-
-  function traverse(dir) {
-    fs.readdirSync(dir).forEach(file => {
-      const filePath = path.join(dir, file);
-      const stat = fs.statSync(filePath);
-      if (stat.isDirectory()) {
-        traverse(filePath);
-      } else if (file.endsWith('.ts') && !file.endsWith('.d.ts')) {
-        const relativePath = path.relative(srcDir, filePath);
-        const entryName = relativePath.replace(/\.ts$/, '');
-        entries[entryName] = filePath;
-      }
-    });
-  }
-
-  traverse(srcDir);
-  return entries;
-};
+// const appendTypings = () => {
+//   return {
+//     name: 'append-typings',
+//     writeBundle(options, bundle) {
+//       const dtsFile = Object.keys(bundle).find(fileName => fileName.endsWith('.d.ts'));
+//       if (dtsFile) {
+//         const typingsDir = path.resolve(process.cwd(), 'typings');
+//         if (fs.existsSync(typingsDir)) {
+//           const typingsContent = fs
+//             .readdirSync(typingsDir)
+//             .filter(file => file.endsWith('.d.ts'))
+//             .map(file => fs.readFileSync(path.join(typingsDir, file), 'utf-8'))
+//             .join('\n\n');
+//           const outputPath = path.resolve(options.dir || path.dirname(options.file), dtsFile);
+//           fs.appendFileSync(outputPath, `\n\n${typingsContent}`);
+//         }
+//       }
+//     },
+//   };
+// };
 
 const plugins = [
   del({ targets: 'dist/*' }),
@@ -76,24 +47,20 @@ const config = [
     input: 'src/index.ts',
     output: [
       {
-        dir: 'dist/esm',
+        file: 'dist/index.mjs',
         format: 'esm',
-        preserveModules: true,
-        entryFileNames: '[name].mjs',
       },
       {
-        dir: 'dist/cjs',
+        file: 'dist/index.cjs',
         format: 'cjs',
-        preserveModules: true,
-        entryFileNames: '[name].cjs',
       },
       {
-        file: 'dist/umd/index.js',
+        file: 'dist/index.js',
         format: 'umd',
         name: 'Utils',
       },
     ],
-    external: [],
+    external: ['lodash', 'lodash-es'],
     plugins,
   },
   {
@@ -102,25 +69,7 @@ const config = [
       file: 'dist/index.d.ts',
       format: 'esm',
     },
-    plugins: [dts({ respectExternal: true }), appendTypings()],
-  },
-  {
-    input: getDtsEntries(),
-    output: [
-      {
-        dir: 'dist/esm',
-        format: 'esm',
-        preserveModules: true,
-        preserveModulesRoot: 'src',
-      },
-      {
-        dir: 'dist/cjs',
-        format: 'cjs',
-        preserveModules: true,
-        preserveModulesRoot: 'src',
-      },
-    ],
-    external: [],
+    external: ['csstype', 'type-fest', 'lodash', 'lodash-es'],
     plugins: [dts({ respectExternal: true })],
   },
 ];

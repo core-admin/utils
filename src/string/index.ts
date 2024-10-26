@@ -1,3 +1,5 @@
+export * from './convert-name';
+
 /**
  * 检查字符串中是否有空格。
  * 至少存在一个空格。

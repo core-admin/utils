@@ -12,14 +12,14 @@
    - 提供模块路径别名功能，允许在代码中使用别名来替代实际路径。
 
 ```js
-import esbuild from 'rollup-plugin-esbuild';
-import dts from 'rollup-plugin-dts';
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import json from '@rollup/plugin-json';
-import alias from '@rollup/plugin-alias';
+import alias from '@rollup/plugin-alias'
+import commonjs from '@rollup/plugin-commonjs'
+import json from '@rollup/plugin-json'
+import resolve from '@rollup/plugin-node-resolve'
+import dts from 'rollup-plugin-dts'
+import esbuild from 'rollup-plugin-esbuild'
 
-const entries = ['src/index.ts'];
+const entries = ['src/index.ts']
 
 const plugins = [
   alias({
@@ -38,7 +38,7 @@ const plugins = [
   esbuild({
     target: 'es2015',
   }),
-];
+]
 
 export default [
   ...entries.map(input => ({
@@ -108,7 +108,7 @@ export default [
     // 通过这个配置，你可以更好地控制生成的类型定义文件的内容，确保它们只包含项目内部的类型定义，而不包括外部依赖的类型。
     plugins: [dts({ respectExternal: true })],
   })),
-];
+]
 ```
 
 资料：
@@ -116,18 +116,17 @@ export default [
 - [【实战篇】最详细的 Rollup 打包项目教程](https://juejin.cn/post/7145090564801691684?searchId=20241024103639767C9157D9FC33E21B3A)
 - [你是怎样的rollup-- rollup打包typescript编写的类库](https://juejin.cn/post/7049354102509142029?searchId=20241024104652208A25727BF3B6D68D07)
 
-
 ```js
-import fs from 'fs';
-import path from 'path';
-import esbuild from 'rollup-plugin-esbuild';
-import dts from 'rollup-plugin-dts';
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import json from '@rollup/plugin-json';
-import alias from '@rollup/plugin-alias';
+import fs from 'node:fs'
+import path from 'node:path'
+import alias from '@rollup/plugin-alias'
+import commonjs from '@rollup/plugin-commonjs'
+import json from '@rollup/plugin-json'
+import resolve from '@rollup/plugin-node-resolve'
+import dts from 'rollup-plugin-dts'
+import esbuild from 'rollup-plugin-esbuild'
 
-const PKG_NAME = 'Utils'; // 可以从 package.json 中读取
+const PKG_NAME = 'Utils' // 可以从 package.json 中读取
 
 // const getOutput = (input, format, extension) => {
 //   const dir = 'dist';
@@ -146,7 +145,7 @@ const PKG_NAME = 'Utils'; // 可以从 package.json 中读取
 
 // const entry = 'src/index.ts';
 
-const entries = ['src/index.ts'];
+const entries = ['src/index.ts']
 
 const plugins = [
   alias({
@@ -160,29 +159,29 @@ const plugins = [
   esbuild({
     target: 'node14',
   }),
-];
+]
 
 // 自定义插件，用于将 typings 目录下的所有 .d.ts 文件内容添加到生成的 .d.ts 文件中
-const appendTypings = () => {
+function appendTypings() {
   return {
     name: 'append-typings',
     writeBundle(options, bundle) {
-      const dtsFile = Object.keys(bundle).find(fileName => fileName.endsWith('.d.ts'));
+      const dtsFile = Object.keys(bundle).find(fileName => fileName.endsWith('.d.ts'))
       if (dtsFile) {
-        const typingsDir = path.resolve(process.cwd(), 'typings');
+        const typingsDir = path.resolve(process.cwd(), 'typings')
         if (fs.existsSync(typingsDir)) {
           const typingsContent = fs
             .readdirSync(typingsDir)
             .filter(file => file.endsWith('.d.ts'))
             .map(file => fs.readFileSync(path.join(typingsDir, file), 'utf-8'))
-            .join('\n\n');
-          const outputPath = path.resolve(options.dir || path.dirname(options.file), dtsFile);
-          fs.appendFileSync(outputPath, `\n\n${typingsContent}`);
+            .join('\n\n')
+          const outputPath = path.resolve(options.dir || path.dirname(options.file), dtsFile)
+          fs.appendFileSync(outputPath, `\n\n${typingsContent}`)
         }
       }
     },
-  };
-};
+  }
+}
 
 export default [
   ...entries.map(input => ({
@@ -229,7 +228,7 @@ export default [
     external: [],
     plugins: [dts({ respectExternal: true }), appendTypings()],
   })),
-];
+]
 ```
 
 **如果 rollup-plugin-babel 新增插件**
@@ -258,8 +257,6 @@ export default [
   - 足够的功能：对于大多数现代 JavaScript/TypeScript 项目，esbuild 的功能已经足够
 4. 除非您需要 Babel 的特定功能（如某些复杂的自定义转换），否则保留 rollup-plugin-esbuild 是个不错的选择。
 
-
-
 如何我在项目中又新增一个rollup-plugin-typescript2插件呢，它的作用是什么，它与babel中使用的@babel/preset-typescript 又有何关系呢？
 
 1. rollup-plugin-typescript2 的作用：
@@ -276,7 +273,7 @@ export default [
    然后在 rollup.config.js 中添加：
 
    ```javascript:rollup.config.js
-   import typescript from 'rollup-plugin-typescript2';
+   import typescript from 'rollup-plugin-typescript2'
 
    const plugins = [
      // ... 其他插件 ...
@@ -287,7 +284,7 @@ export default [
      esbuild({
        target: 'es2018',
      }),
-   ];
+   ]
    ```
 
 3. rollup-plugin-typescript2 vs @babel/preset-typescript：

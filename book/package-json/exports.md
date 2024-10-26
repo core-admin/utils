@@ -57,15 +57,15 @@
 
 这样配置后，用户可以导入任何子模块，如：
 ```javascript
-import { someFunction } from '@core-admin/utils/string';
+import { someFunction } from '@core-admin/utils/string'
 ```
 
 2. 使用构建工具生成 `exports` 配置：
    您可以创建一个脚本，自动扫描 `src` 目录并生成 `exports` 配置。例如：
 
 ```javascript:scripts/generate-exports.js
-const fs = require('fs');
-const path = require('path');
+const fs = require('node:fs')
+const path = require('node:path')
 
 function generateExports(dir) {
   const exports = {
@@ -74,38 +74,39 @@ function generateExports(dir) {
       require: './dist/cjs/index.cjs',
       types: './dist/index.d.ts'
     }
-  };
+  }
 
   function scanDir(currentDir, currentPath = '') {
-    const files = fs.readdirSync(path.join(__dirname, '..', currentDir));
-    files.forEach(file => {
-      const filePath = path.join(currentDir, file);
-      const stat = fs.statSync(path.join(__dirname, '..', filePath));
+    const files = fs.readdirSync(path.join(__dirname, '..', currentDir))
+    files.forEach((file) => {
+      const filePath = path.join(currentDir, file)
+      const stat = fs.statSync(path.join(__dirname, '..', filePath))
       if (stat.isDirectory()) {
-        scanDir(filePath, `${currentPath}${file}/`);
-      } else if (file.endsWith('.ts') && !file.endsWith('.d.ts')) {
-        const moduleName = file.replace('.ts', '');
-        const exportPath = `${currentPath}${moduleName}`;
+        scanDir(filePath, `${currentPath}${file}/`)
+      }
+      else if (file.endsWith('.ts') && !file.endsWith('.d.ts')) {
+        const moduleName = file.replace('.ts', '')
+        const exportPath = `${currentPath}${moduleName}`
         exports[`./${exportPath}`] = {
           import: `./dist/esm/${exportPath}.mjs`,
           require: `./dist/cjs/${exportPath}.cjs`,
           types: `./dist/${exportPath}.d.ts`
-        };
+        }
       }
-    });
+    })
   }
 
-  scanDir('src');
-  return exports;
+  scanDir('src')
+  return exports
 }
 
-const packageJson = require('../package.json');
-packageJson.exports = generateExports('src');
+const packageJson = require('../package.json')
+packageJson.exports = generateExports('src')
 
 fs.writeFileSync(
   path.join(__dirname, '..', 'package.json'),
   JSON.stringify(packageJson, null, 2)
-);
+)
 ```
 
 然后在 `package.json` 中添加一个脚本来运行它：
@@ -144,8 +145,8 @@ fs.writeFileSync(
    如果您希望限制公开的 API，可以在 `src/index.ts` 中重新导出所有想要公开的模块：
 
 ```typescript:src/index.ts
-export * as url from './url';
-export * as string from './string';
+export * as string from './string'
+export * as url from './url'
 // ... 其他模块
 ```
 
@@ -166,5 +167,3 @@ export * as string from './string';
 这种方法可以让您更好地控制公开的 API，但可能会影响树摇（tree-shaking）的效果。
 
 选择哪种方法取决于您的具体需求和项目结构。方法 1 和 3 最简单，方法 2 最灵活，方法 4 提供了最好的 API 控制。
-
-

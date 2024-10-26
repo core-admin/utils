@@ -1,0 +1,16 @@
+.idea
+tsconfig.tsbuildinfo
+
+**/*.svg
+**/*.sh
+
+out
+dist
+dist-electron
+dist-tsup
+node_modules
+public
+book
+.local
+
+*cache
