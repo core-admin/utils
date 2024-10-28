@@ -48,7 +48,7 @@ escapeHtml('<div class="test">')
 
 #### Defined in
 
-src/dom/html.ts:176
+[src/dom/html.ts:176](https://github.com/core-admin/utils/blob/48a655a/src/dom/html.ts#L176)
 
 ___
 
@@ -93,7 +93,7 @@ result: '<div><img src="new.jpg" alt="test"/></div>'
 
 #### Defined in
 
-src/dom/html.ts:30
+[src/dom/html.ts:30](https://github.com/core-admin/utils/blob/48a655a/src/dom/html.ts#L30)
 
 ___
 
@@ -131,7 +131,7 @@ length: 8
 
 #### Defined in
 
-src/dom/html.ts:142
+[src/dom/html.ts:142](https://github.com/core-admin/utils/blob/48a655a/src/dom/html.ts#L142)
 
 ___
 
@@ -177,7 +177,7 @@ result: 'Hello Tom, your age is 18'
 
 #### Defined in
 
-src/dom/html.ts:87
+[src/dom/html.ts:87](https://github.com/core-admin/utils/blob/48a655a/src/dom/html.ts#L87)
 
 ___
 
@@ -215,4 +215,4 @@ unescapeHtml('&lt;div class=&quot;test&quot;&gt;')
 
 #### Defined in
 
-src/dom/html.ts:209
+[src/dom/html.ts:209](https://github.com/core-admin/utils/blob/48a655a/src/dom/html.ts#L209)

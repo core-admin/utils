@@ -31,7 +31,7 @@
 
 #### Defined in
 
-src/validate.ts:4
+[src/validate.ts:4](https://github.com/core-admin/utils/blob/48a655a/src/validate.ts#L4)
 
 ___
 
@@ -53,7 +53,7 @@ ___
 
 #### Defined in
 
-src/validate.ts:28
+[src/validate.ts:28](https://github.com/core-admin/utils/blob/48a655a/src/validate.ts#L28)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-src/validate.ts:19
+[src/validate.ts:19](https://github.com/core-admin/utils/blob/48a655a/src/validate.ts#L19)
 
 ___
 
@@ -97,4 +97,4 @@ ___
 
 #### Defined in
 
-src/validate.ts:11
+[src/validate.ts:11](https://github.com/core-admin/utils/blob/48a655a/src/validate.ts#L11)

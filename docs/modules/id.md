@@ -30,4 +30,4 @@
 
 #### Defined in
 
-src/id.ts:12
+[src/id.ts:12](https://github.com/core-admin/utils/blob/48a655a/src/id.ts#L12)

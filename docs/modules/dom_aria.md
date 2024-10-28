@@ -31,7 +31,7 @@
 
 #### Defined in
 
-src/dom/aria.ts:47
+[src/dom/aria.ts:47](https://github.com/core-admin/utils/blob/48a655a/src/dom/aria.ts#L47)
 
 ___
 
@@ -55,4 +55,4 @@ ___
 
 #### Defined in
 
-src/dom/aria.ts:6
+[src/dom/aria.ts:6](https://github.com/core-admin/utils/blob/48a655a/src/dom/aria.ts#L6)

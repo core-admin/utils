@@ -40,7 +40,7 @@
 
 #### Defined in
 
-src/dom/style.ts:30
+[src/dom/style.ts:29](https://github.com/core-admin/utils/blob/48a655a/src/dom/style.ts#L29)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-src/dom/style.ts:137
+[src/dom/style.ts:132](https://github.com/core-admin/utils/blob/48a655a/src/dom/style.ts#L132)
 
 ___
 
@@ -93,7 +93,7 @@ CSS变量的值
 
 #### Defined in
 
-src/dom/style.ts:101
+[src/dom/style.ts:96](https://github.com/core-admin/utils/blob/48a655a/src/dom/style.ts#L96)
 
 ___
 
@@ -118,7 +118,7 @@ ___
 
 #### Defined in
 
-src/dom/style.ts:147
+[src/dom/style.ts:142](https://github.com/core-admin/utils/blob/48a655a/src/dom/style.ts#L142)
 
 ___
 
@@ -143,7 +143,7 @@ ___
 
 #### Defined in
 
-src/dom/style.ts:81
+[src/dom/style.ts:76](https://github.com/core-admin/utils/blob/48a655a/src/dom/style.ts#L76)
 
 ___
 
@@ -172,7 +172,7 @@ ___
 
 #### Defined in
 
-src/dom/style.ts:15
+[src/dom/style.ts:15](https://github.com/core-admin/utils/blob/48a655a/src/dom/style.ts#L15)
 
 ___
 
@@ -195,7 +195,7 @@ ___
 
 #### Defined in
 
-src/dom/style.ts:55
+[src/dom/style.ts:52](https://github.com/core-admin/utils/blob/48a655a/src/dom/style.ts#L52)
 
 ___
 
@@ -218,7 +218,7 @@ ___
 
 #### Defined in
 
-src/dom/style.ts:197
+[src/dom/style.ts:192](https://github.com/core-admin/utils/blob/48a655a/src/dom/style.ts#L192)
 
 ___
 
@@ -252,7 +252,7 @@ ___
 
 #### Defined in
 
-src/dom/style.ts:120
+[src/dom/style.ts:115](https://github.com/core-admin/utils/blob/48a655a/src/dom/style.ts#L115)
 
 ___
 
@@ -276,7 +276,7 @@ ___
 
 #### Defined in
 
-src/dom/style.ts:174
+[src/dom/style.ts:169](https://github.com/core-admin/utils/blob/48a655a/src/dom/style.ts#L169)
 
 ___
 
@@ -311,7 +311,7 @@ const styleString = styleObjectToString(styleObject);
 
 #### Defined in
 
-src/dom/style.ts:249
+[src/dom/style.ts:244](https://github.com/core-admin/utils/blob/48a655a/src/dom/style.ts#L244)
 
 ___
 
@@ -353,4 +353,4 @@ const inlineStyleString = styleToString(div.style);
 
 #### Defined in
 
-src/dom/style.ts:228
+[src/dom/style.ts:223](https://github.com/core-admin/utils/blob/48a655a/src/dom/style.ts#L223)

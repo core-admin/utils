@@ -44,7 +44,7 @@
 
 #### Defined in
 
-src/type.ts:152
+[src/type.ts:152](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L152)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-src/type.ts:155
+[src/type.ts:155](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L155)
 
 ## Functions
 
@@ -79,7 +79,7 @@ src/type.ts:155
 
 #### Defined in
 
-src/type.ts:9
+[src/type.ts:9](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L9)
 
 ___
 
@@ -123,7 +123,7 @@ value is bigint
 
 #### Defined in
 
-src/type.ts:95
+[src/type.ts:95](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L95)
 
 ___
 
@@ -145,7 +145,7 @@ value is boolean
 
 #### Defined in
 
-src/type.ts:55
+[src/type.ts:55](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L55)
 
 ___
 
@@ -167,7 +167,7 @@ value is Date
 
 #### Defined in
 
-src/type.ts:103
+[src/type.ts:103](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L103)
 
 ___
 
@@ -195,7 +195,7 @@ val is NonNullable<T\>
 
 #### Defined in
 
-src/type.ts:149
+[src/type.ts:149](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L149)
 
 ___
 
@@ -217,7 +217,7 @@ value is Element
 
 #### Defined in
 
-src/type.ts:131
+[src/type.ts:131](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L131)
 
 ___
 
@@ -239,7 +239,7 @@ ___
 
 #### Defined in
 
-src/type.ts:140
+[src/type.ts:140](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L140)
 
 ___
 
@@ -255,7 +255,7 @@ ___
 
 #### Defined in
 
-src/type.ts:158
+[src/type.ts:158](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L158)
 
 ___
 
@@ -277,7 +277,7 @@ value is Function
 
 #### Defined in
 
-src/type.ts:63
+[src/type.ts:63](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L63)
 
 ___
 
@@ -293,7 +293,7 @@ ___
 
 #### Defined in
 
-src/type.ts:161
+[src/type.ts:161](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L161)
 
 ___
 
@@ -309,7 +309,7 @@ ___
 
 #### Defined in
 
-src/type.ts:173
+[src/type.ts:173](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L173)
 
 ___
 
@@ -331,7 +331,7 @@ value is null
 
 #### Defined in
 
-src/type.ts:71
+[src/type.ts:71](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L71)
 
 ___
 
@@ -353,7 +353,7 @@ value is number
 
 #### Defined in
 
-src/type.ts:36
+[src/type.ts:36](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L36)
 
 ___
 
@@ -375,7 +375,7 @@ value is Record<any, any\>
 
 #### Defined in
 
-src/type.ts:20
+[src/type.ts:20](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L20)
 
 ___
 
@@ -397,7 +397,7 @@ value is Promise<unknown\>
 
 #### Defined in
 
-src/type.ts:119
+[src/type.ts:119](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L119)
 
 ___
 
@@ -419,7 +419,7 @@ value is RegExp
 
 #### Defined in
 
-src/type.ts:111
+[src/type.ts:111](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L111)
 
 ___
 
@@ -442,7 +442,7 @@ ___
 
 #### Defined in
 
-src/type.ts:169
+[src/type.ts:169](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L169)
 
 ___
 
@@ -464,7 +464,7 @@ value is string
 
 #### Defined in
 
-src/type.ts:28
+[src/type.ts:28](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L28)
 
 ___
 
@@ -486,7 +486,7 @@ ___
 
 #### Defined in
 
-src/type.ts:44
+[src/type.ts:44](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L44)
 
 ___
 
@@ -508,7 +508,7 @@ value is symbol
 
 #### Defined in
 
-src/type.ts:87
+[src/type.ts:87](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L87)
 
 ___
 
@@ -530,4 +530,4 @@ value is undefined
 
 #### Defined in
 
-src/type.ts:79
+[src/type.ts:79](https://github.com/core-admin/utils/blob/48a655a/src/type.ts#L79)

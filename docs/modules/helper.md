@@ -31,7 +31,7 @@
 
 #### Defined in
 
-src/helper.ts:18
+[src/helper.ts:18](https://github.com/core-admin/utils/blob/48a655a/src/helper.ts#L18)
 
 ___
 
@@ -61,4 +61,4 @@ ___
 
 #### Defined in
 
-src/helper.ts:7
+[src/helper.ts:7](https://github.com/core-admin/utils/blob/48a655a/src/helper.ts#L7)

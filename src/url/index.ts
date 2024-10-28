@@ -24,7 +24,7 @@ export function setObjToUrlParams(baseUrl: string, obj: any): string {
 
 export function parseUrl(url: string) {
   const urlObj = {
-    protocol: /^(.+)\/\//,
+    protocol: /^([^:]+):/,
     host: /:\/\/(.+?)[?#\s/]/,
     path: /\w(\/.*?)[?#\s]/,
     query: /\?(.+?)[#/\s]/,
@@ -44,10 +44,11 @@ export function parseUrl(url: string) {
   }
   for (const key in urlObj) {
     const pattern = urlObj[key as keyof typeof urlObj];
-    res[key] =
+    const value =
       key === 'query'
         ? pattern.exec(url) && formatQuery(pattern.exec(url)![1])
         : pattern.exec(url) && pattern.exec(url)![1];
+    res[key] = value || undefined;
   }
   return res;
 }

@@ -39,7 +39,7 @@
 
 #### Defined in
 
-src/dom/window.ts:11
+[src/dom/window.ts:11](https://github.com/core-admin/utils/blob/48a655a/src/dom/window.ts#L11)
 
 ___
 
@@ -89,7 +89,7 @@ element.addEventListener('touchstart', (event) => {
 
 #### Defined in
 
-src/dom/window.ts:194
+[src/dom/window.ts:194](https://github.com/core-admin/utils/blob/48a655a/src/dom/window.ts#L194)
 
 ___
 
@@ -115,7 +115,7 @@ ___
 
 #### Defined in
 
-src/dom/window.ts:105
+[src/dom/window.ts:105](https://github.com/core-admin/utils/blob/48a655a/src/dom/window.ts#L105)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-src/dom/window.ts:45
+[src/dom/window.ts:45](https://github.com/core-admin/utils/blob/48a655a/src/dom/window.ts#L45)
 
 ___
 
@@ -186,7 +186,7 @@ console.log(distance);
 
 #### Defined in
 
-src/dom/window.ts:88
+[src/dom/window.ts:88](https://github.com/core-admin/utils/blob/48a655a/src/dom/window.ts#L88)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-src/dom/window.ts:163
+[src/dom/window.ts:163](https://github.com/core-admin/utils/blob/48a655a/src/dom/window.ts#L163)
 
 ___
 
@@ -240,7 +240,7 @@ ___
 
 #### Defined in
 
-src/dom/window.ts:31
+[src/dom/window.ts:31](https://github.com/core-admin/utils/blob/48a655a/src/dom/window.ts#L31)
 
 ___
 
@@ -278,4 +278,4 @@ console.log(viewport);
 
 #### Defined in
 
-src/dom/window.ts:132
+[src/dom/window.ts:132](https://github.com/core-admin/utils/blob/48a655a/src/dom/window.ts#L132)

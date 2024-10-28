@@ -38,7 +38,7 @@
 
 #### Defined in
 
-src/object/index.ts:19
+[src/object/index.ts:19](https://github.com/core-admin/utils/blob/48a655a/src/object/index.ts#L19)
 
 ___
 
@@ -74,7 +74,7 @@ ___
 
 #### Defined in
 
-src/object/index.ts:29
+[src/object/index.ts:29](https://github.com/core-admin/utils/blob/48a655a/src/object/index.ts#L29)
 
 ___
 
@@ -104,4 +104,4 @@ keyof `T`[]
 
 #### Defined in
 
-src/object/index.ts:11
+[src/object/index.ts:11](https://github.com/core-admin/utils/blob/48a655a/src/object/index.ts#L11)

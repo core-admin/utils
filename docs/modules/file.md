@@ -34,7 +34,7 @@
 
 #### Defined in
 
-src/file/index.ts:187
+[src/file/index.ts:187](https://github.com/core-admin/utils/blob/48a655a/src/file/index.ts#L187)
 
 ___
 
@@ -70,7 +70,7 @@ ___
 
 #### Defined in
 
-src/file/index.ts:45
+[src/file/index.ts:45](https://github.com/core-admin/utils/blob/48a655a/src/file/index.ts#L45)
 
 ___
 
@@ -104,7 +104,7 @@ extractFileInfoFromUrl('https://example.com/invalid')
 
 #### Defined in
 
-src/file/index.ts:136
+[src/file/index.ts:136](https://github.com/core-admin/utils/blob/48a655a/src/file/index.ts#L136)
 
 ___
 
@@ -141,7 +141,7 @@ const base64 = await fileToBase64Async(file);
 
 #### Defined in
 
-src/file/index.ts:176
+[src/file/index.ts:176](https://github.com/core-admin/utils/blob/48a655a/src/file/index.ts#L176)
 
 ___
 
@@ -178,7 +178,7 @@ formatFileSize(1234567) // 返回 "1.18 MB"
 
 #### Defined in
 
-src/file/index.ts:16
+[src/file/index.ts:16](https://github.com/core-admin/utils/blob/48a655a/src/file/index.ts#L16)
 
 ___
 
@@ -214,7 +214,7 @@ getUrlFileNameAndType('path/to/file.txt')
 
 #### Defined in
 
-src/file/index.ts:62
+[src/file/index.ts:62](https://github.com/core-admin/utils/blob/48a655a/src/file/index.ts#L62)
 
 ___
 
@@ -236,7 +236,7 @@ ___
 
 #### Defined in
 
-src/file/index.ts:156
+[src/file/index.ts:156](https://github.com/core-admin/utils/blob/48a655a/src/file/index.ts#L156)
 
 ___
 
@@ -288,7 +288,7 @@ console.log(fileInfo);
 
 #### Defined in
 
-src/file/index.ts:100
+[src/file/index.ts:100](https://github.com/core-admin/utils/blob/48a655a/src/file/index.ts#L100)
 
 ___
 
@@ -324,4 +324,4 @@ ___
 
 #### Defined in
 
-src/file/index.ts:220
+[src/file/index.ts:220](https://github.com/core-admin/utils/blob/48a655a/src/file/index.ts#L220)

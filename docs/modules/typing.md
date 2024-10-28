@@ -43,7 +43,7 @@
 
 #### Defined in
 
-src/typing.ts:13
+[src/typing.ts:13](https://github.com/core-admin/utils/blob/48a655a/src/typing.ts#L13)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-src/typing.ts:9
+[src/typing.ts:9](https://github.com/core-admin/utils/blob/48a655a/src/typing.ts#L9)
 
 ___
 
@@ -69,7 +69,7 @@ ___
 
 #### Defined in
 
-src/typing.ts:11
+[src/typing.ts:11](https://github.com/core-admin/utils/blob/48a655a/src/typing.ts#L11)
 
 ___
 
@@ -85,4 +85,4 @@ ___
 
 #### Defined in
 
-src/typing.ts:3
+[src/typing.ts:3](https://github.com/core-admin/utils/blob/48a655a/src/typing.ts#L3)

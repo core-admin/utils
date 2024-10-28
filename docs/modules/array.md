@@ -4,10 +4,25 @@
 
 ## Table of contents
 
+### References
+
+- [alphabeticalSort](array.md#alphabeticalsort)
+- [asymmetricDifferenceArrayBase](array.md#asymmetricdifferencearraybase)
+- [asymmetricDifferenceArrayObject](array.md#asymmetricdifferencearrayobject)
+- [differenceArrayBase](array.md#differencearraybase)
+- [differenceArrayObject](array.md#differencearrayobject)
+- [intersectionArrayBase](array.md#intersectionarraybase)
+- [intersectionArrayObject](array.md#intersectionarrayobject)
+- [orderBy](array.md#orderby)
+- [quickSort](array.md#quicksort)
+- [symmetricDifferenceArrayBase](array.md#symmetricdifferencearraybase)
+- [symmetricDifferenceArrayObject](array.md#symmetricdifferencearrayobject)
+- [unionArrayBase](array.md#unionarraybase)
+- [unionArrayObject](array.md#unionarrayobject)
+
 ### Functions
 
 - [allDistinct](array.md#alldistinct)
-- [alphabeticalSort](array.md#alphabeticalsort)
 - [averageArray](array.md#averagearray)
 - [hasDuplicates](array.md#hasduplicates)
 - [makeUniqueElementsBy](array.md#makeuniqueelementsby)
@@ -17,9 +32,7 @@
 - [medianArray](array.md#medianarray)
 - [minBy](array.md#minby)
 - [minN](array.md#minn)
-- [orderBy](array.md#orderby)
 - [productArray](array.md#productarray)
-- [quickSort](array.md#quicksort)
 - [removeNonUnique](array.md#removenonunique)
 - [removeNonUniqueBy](array.md#removenonuniqueby)
 - [removeUnique](array.md#removeunique)
@@ -28,6 +41,84 @@
 - [sumArray](array.md#sumarray)
 - [uniqueElementsBy](array.md#uniqueelementsby)
 - [uniquePrimitiveElements](array.md#uniqueprimitiveelements)
+
+## References
+
+### alphabeticalSort
+
+Re-exports [alphabeticalSort](array_order.md#alphabeticalsort)
+
+___
+
+### asymmetricDifferenceArrayBase
+
+Re-exports [asymmetricDifferenceArrayBase](array_filter.md#asymmetricdifferencearraybase)
+
+___
+
+### asymmetricDifferenceArrayObject
+
+Re-exports [asymmetricDifferenceArrayObject](array_filter.md#asymmetricdifferencearrayobject)
+
+___
+
+### differenceArrayBase
+
+Re-exports [differenceArrayBase](array_filter.md#differencearraybase)
+
+___
+
+### differenceArrayObject
+
+Re-exports [differenceArrayObject](array_filter.md#differencearrayobject)
+
+___
+
+### intersectionArrayBase
+
+Re-exports [intersectionArrayBase](array_filter.md#intersectionarraybase)
+
+___
+
+### intersectionArrayObject
+
+Re-exports [intersectionArrayObject](array_filter.md#intersectionarrayobject)
+
+___
+
+### orderBy
+
+Re-exports [orderBy](array_order.md#orderby)
+
+___
+
+### quickSort
+
+Re-exports [quickSort](array_order.md#quicksort)
+
+___
+
+### symmetricDifferenceArrayBase
+
+Re-exports [symmetricDifferenceArrayBase](array_filter.md#symmetricdifferencearraybase)
+
+___
+
+### symmetricDifferenceArrayObject
+
+Re-exports [symmetricDifferenceArrayObject](array_filter.md#symmetricdifferencearrayobject)
+
+___
+
+### unionArrayBase
+
+Re-exports [unionArrayBase](array_filter.md#unionarraybase)
+
+___
+
+### unionArrayObject
+
+Re-exports [unionArrayObject](array_filter.md#unionarrayobject)
 
 ## Functions
 
@@ -55,56 +146,7 @@
 
 #### Defined in
 
-src/array/index.ts:20
-
-___
-
-### alphabeticalSort
-
-▸ **alphabeticalSort**<`T`\>(`arr`, `getter`, `order?`): `T`[]
-
-根据属性按照字母顺序对对象数组进行排序（默认为升序）
-
-**`Description`**
-
-此方法对给定的对象数组进行排序，根据指定的属性值进行字母顺序排序。
-可以选择升序或降序排序，默认为升序。
-
-**`Example`**
-
-```ts
-const users = [
-  { name: '张三', age: 30 },
-  { name: '李四', age: 25 },
-  { name: '王五', age: 35 }
-];
-const sortedUsers = alphabeticalSort(users, user => user.name);
-结果: [{ name: '李四', age: 25 }, { name: '王五', age: 35 }, { name: '张三', age: 30 }]
-```
-
-#### Type parameters
-
-| Name | Description |
-| :------ | :------ |
-| `T` | 数组元素的类型 |
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `arr` | `T`[] | `undefined` | 要排序的对象数组 |
-| `getter` | (`i`: `T`) => `string` | `undefined` | 用于获取排序属性值的函数 |
-| `order?` | ``"desc"`` \| ``"asc"`` | `'asc'` | 排序顺序，'asc' 为升序，'desc' 为降序 |
-
-#### Returns
-
-`T`[]
-
-返回排序后的新数组
-
-#### Defined in
-
-src/array/index.ts:198
+[src/array/index.ts:22](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L22)
 
 ___
 
@@ -126,7 +168,7 @@ ___
 
 #### Defined in
 
-src/array/index.ts:325
+[src/array/index.ts:236](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L236)
 
 ___
 
@@ -154,7 +196,7 @@ ___
 
 #### Defined in
 
-src/array/index.ts:13
+[src/array/index.ts:15](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L15)
 
 ___
 
@@ -203,7 +245,7 @@ const uniqueArr = makeUniqueElementsBy(arr, item => item.id);
 
 #### Defined in
 
-src/array/index.ts:132
+[src/array/index.ts:134](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L134)
 
 ___
 
@@ -250,7 +292,7 @@ const result = makeUniqueElementsBy2(numbers, compareValues, (num, compare) => n
 
 #### Defined in
 
-src/array/index.ts:164
+[src/array/index.ts:166](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L166)
 
 ___
 
@@ -289,7 +331,7 @@ minBy([{ n: 4 }, { n: 2 }, { n: 8 }, { n: 6 }], 'n'); // 2
 
 #### Defined in
 
-src/array/index.ts:307
+[src/array/index.ts:218](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L218)
 
 ___
 
@@ -326,7 +368,7 @@ maxN([1, 3, 2, 5, 4], 2); // 返回 [5, 4]
 
 #### Defined in
 
-src/array/index.ts:278
+[src/array/index.ts:189](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L189)
 
 ___
 
@@ -348,7 +390,7 @@ ___
 
 #### Defined in
 
-src/array/index.ts:332
+[src/array/index.ts:243](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L243)
 
 ___
 
@@ -375,7 +417,7 @@ ___
 
 #### Defined in
 
-src/array/index.ts:311
+[src/array/index.ts:222](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L222)
 
 ___
 
@@ -412,53 +454,7 @@ minN([1, 3, 2, 5, 4], 2); // 返回 [1, 2]
 
 #### Defined in
 
-src/array/index.ts:293
-
-___
-
-### orderBy
-
-▸ **orderBy**<`T`\>(`arr`, `props`, `orders?`): `T`[]
-
-对对象数组进行排序，按照指定属性进行排序（默认为升序）。
-经常场景就是 SQL 查询，可以按多列排序并指定每列的顺序。
-orders 默认值为升序。0 也将被视为升序。
-
-**`Other`**
-
-https://www.30secondsofcode.org/js/s/sort-array-of-objects/#sort-an-array-of-objects-ordered-by-a-property-order
-
-**`Example`**
-
-```ts
-const users = [ { name: 'fred', age: 48 }, { name: 'barney', age: 36 }, { name: 'fred', age: 40 }];
-orderBy(users, ['name', 'age'], [1, -1]); // [{ name: "barney", age: 36, }, { name: "fred", age: 48 }, { name: "fred", age: 40}]
-
-先根据用户的 name 属性进行升序排序，如果 name 相同，则根据 age 属性进行降序排序；
-barney, 36（因为 barney 在字母顺序上排在 fred 之前），fred, 48（因为在所有名为 fred 的条目中，按照 age 降序，48 大于 40），fred 40。
-```
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `arr` | `T`[] |
-| `props` | keyof `T`[] |
-| `orders?` | (``1`` \| ``-1``)[] |
-
-#### Returns
-
-`T`[]
-
-#### Defined in
-
-src/array/index.ts:224
+[src/array/index.ts:204](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L204)
 
 ___
 
@@ -480,40 +476,7 @@ ___
 
 #### Defined in
 
-src/array/index.ts:341
-
-___
-
-### quickSort
-
-▸ **quickSort**<`T`\>(`arr`): `T`[]
-
-快速排序是一种分而治之的排序算法。
-它的基本思想是选择一个“基准”元素，然后将数组分为两部分，一部分包括所有小于基准的元素，另一部分包括所有大于基准的元素。
-这个过程称为分区（partitioning）。然后，递归地在两个子数组上重复这个过程，直到整个数组排序完成。
-
-对于处理大型数据集，快速排序通常是最快的排序算法之一（需要高效排序算法的场景）。
-该算法的平均时间复杂度为O(n log n)。
-
-#### Type parameters
-
-| Name |
-| :------ |
-| `T` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `arr` | `T`[] |
-
-#### Returns
-
-`T`[]
-
-#### Defined in
-
-src/array/index.ts:248
+[src/array/index.ts:252](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L252)
 
 ___
 
@@ -548,7 +511,7 @@ removeNonUnique([1, 2, 2, 3, 4, 4, 5]); // [1, 3, 5]
 
 #### Defined in
 
-src/array/index.ts:29
+[src/array/index.ts:31](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L31)
 
 ___
 
@@ -605,7 +568,7 @@ console.log(result); // [{ id: 2, name: '李四' }, { id: 3, name: '赵六' }]
 
 #### Defined in
 
-src/array/index.ts:69
+[src/array/index.ts:71](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L71)
 
 ___
 
@@ -640,7 +603,7 @@ removeUnique([1, 2, 2, 3, 4, 4, 5]); // [2, 4]
 
 #### Defined in
 
-src/array/index.ts:38
+[src/array/index.ts:40](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L40)
 
 ___
 
@@ -668,7 +631,7 @@ ___
 
 #### Defined in
 
-src/array/index.ts:348
+[src/array/index.ts:259](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L259)
 
 ___
 
@@ -697,7 +660,7 @@ ___
 
 #### Defined in
 
-src/array/index.ts:355
+[src/array/index.ts:266](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L266)
 
 ___
 
@@ -719,7 +682,7 @@ ___
 
 #### Defined in
 
-src/array/index.ts:318
+[src/array/index.ts:229](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L229)
 
 ___
 
@@ -769,7 +732,7 @@ const uniqueArr = uniqueElementsBy(arr, (a, b) => a.id === b.id);
 
 #### Defined in
 
-src/array/index.ts:101
+[src/array/index.ts:103](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L103)
 
 ___
 
@@ -797,4 +760,4 @@ ___
 
 #### Defined in
 
-src/array/index.ts:6
+[src/array/index.ts:8](https://github.com/core-admin/utils/blob/48a655a/src/array/index.ts#L8)

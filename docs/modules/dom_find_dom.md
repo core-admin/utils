@@ -44,7 +44,7 @@ getAncestors(divElement)
 
 #### Defined in
 
-src/dom/find-dom.ts:43
+[src/dom/find-dom.ts:43](https://github.com/core-admin/utils/blob/48a655a/src/dom/find-dom.ts#L43)
 
 ___
 
@@ -80,7 +80,7 @@ getParentsUntil(divElement, '.container')
 
 #### Defined in
 
-src/dom/find-dom.ts:22
+[src/dom/find-dom.ts:22](https://github.com/core-admin/utils/blob/48a655a/src/dom/find-dom.ts#L22)
 
 ___
 
@@ -108,7 +108,7 @@ ___
 
 #### Defined in
 
-src/dom/find-dom.ts:7
+[src/dom/find-dom.ts:7](https://github.com/core-admin/utils/blob/48a655a/src/dom/find-dom.ts#L7)
 
 ___
 
@@ -148,4 +148,4 @@ getSiblingByPosition(element, -2, '.sibling-class')
 
 #### Defined in
 
-src/dom/find-dom.ts:68
+[src/dom/find-dom.ts:68](https://github.com/core-admin/utils/blob/48a655a/src/dom/find-dom.ts#L68)
