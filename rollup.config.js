@@ -58,6 +58,10 @@ const config = [
         file: 'dist/index.js',
         format: 'umd',
         name: 'Utils',
+        globals: {
+          'lodash-es': '_',
+          lodash: '_',
+        },
       },
     ],
     external: ['lodash', 'lodash-es'],
