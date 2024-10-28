@@ -19,8 +19,6 @@ yarn add @hubxu/utils
 pnpm add @hubxu/utils
 ```
 
-````
-
 ## 🚀 使用
 
 ```ts
@@ -29,4 +27,4 @@ import { addUnit, formatNumber } from '@hubxu/utils';
 
 // CommonJS
 const { addUnit, formatNumber } = require('@hubxu/utils');
-````
+```
