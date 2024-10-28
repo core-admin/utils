@@ -1,23 +1,46 @@
+/** 获取对象的toString方法 */
 const toString = Object.prototype.toString;
 
+/**
+ * 判断值是否为指定类型
+ * @param value - 要判断的值
+ * @param type - 类型字符串
+ */
 export function is(value: unknown, type: string) {
   return toString.call(value).toLowerCase() === `[object ${type}]`.toLowerCase();
 }
 
+/** Array.isArray 的别名 */
 export const isArray: typeof Array.isArray = Array.isArray;
 
+/**
+ * 判断值是否为对象
+ * @param value - 要判断的值
+ */
 export function isObject(value: unknown): value is Record<any, any> {
   return value !== null && is(value, 'object');
 }
 
+/**
+ * 判断值是否为字符串
+ * @param value - 要判断的值
+ */
 export function isString(value: unknown): value is string {
   return typeof value === 'string';
 }
 
+/**
+ * 判断值是否为数字
+ * @param value - 要判断的值
+ */
 export function isNumber(value: unknown): value is number {
   return typeof value === 'number';
 }
 
+/**
+ * 判断字符串是否可转为数字
+ * @param value - 要判断的值
+ */
 export function isStringNumber(value: unknown): boolean {
   if (!isString(value)) {
     return false;
@@ -25,38 +48,74 @@ export function isStringNumber(value: unknown): boolean {
   return !Number.isNaN(Number(value));
 }
 
+/**
+ * 判断值是否为布尔值
+ * @param value - 要判断的值
+ */
 export function isBoolean(value: unknown): value is boolean {
   return typeof value === 'boolean';
 }
 
+/**
+ * 判断值是否为函数
+ * @param value - 要判断的值
+ */
 export function isFunction(value: unknown): value is Function {
   return is(value, 'function');
 }
 
+/**
+ * 判断值是否为null
+ * @param value - 要判断的值
+ */
 export function isNull(value: unknown): value is null {
   return value === null;
 }
 
+/**
+ * 判断值是否为undefined
+ * @param value - 要判断的值
+ */
 export function isUndefined(value: unknown): value is undefined {
   return value === undefined;
 }
 
+/**
+ * 判断值是否为Symbol
+ * @param value - 要判断的值
+ */
 export function isSymbol(value: unknown): value is symbol {
   return typeof value === 'symbol';
 }
 
+/**
+ * 判断值是否为BigInt
+ * @param value - 要判断的值
+ */
 export function isBigInt(value: unknown): value is bigint {
   return typeof value === 'bigint';
 }
 
+/**
+ * 判断值是否为Date对象
+ * @param value - 要判断的值
+ */
 export function isDate(value: unknown): value is Date {
   return is(value, 'date');
 }
 
+/**
+ * 判断值是否为正则表达式
+ * @param value - 要判断的值
+ */
 export function isRegExp(value: unknown): value is RegExp {
   return is(value, 'regexp');
 }
 
+/**
+ * 判断值是否为Promise
+ * @param value - 要判断的值
+ */
 export function isPromise(value: unknown): value is Promise<unknown> {
   return (
     (isObject(value) || isFunction(value)) &&
@@ -65,11 +124,19 @@ export function isPromise(value: unknown): value is Promise<unknown> {
   );
 }
 
+/**
+ * 判断值是否为DOM元素
+ * @param value - 要判断的值
+ */
 export function isElement(value: unknown): value is Element {
   if (typeof Element === 'undefined') return false;
   return value instanceof Element;
 }
 
+/**
+ * 判断值是否为空
+ * @param value - 要判断的值
+ */
 export function isEmpty(value: unknown): boolean {
   return (
     (!value && value !== 0) ||
@@ -78,25 +145,35 @@ export function isEmpty(value: unknown): boolean {
   );
 }
 
+/** 判断值是否已定义且非null */
 export const isDef = <T>(val: T): val is NonNullable<T> => val !== undefined && val !== null;
 
+/** 是否为浏览器环境 */
 export const isClient = typeof window !== 'undefined' && typeof document !== 'undefined';
 
+/** 是否为服务器环境 */
 export const isServer = !isClient;
 
+/** 是否为Firefox浏览器 */
 export const isFirefox = (): boolean => isClient && /firefox/i.test(window.navigator.userAgent);
 
+/** 是否为iOS设备 */
 export const isIOS = (): boolean =>
   isClient ? /ios|iphone|ipad|ipod/.test(navigator.userAgent.toLowerCase()) : false;
 
+/**
+ * 判断两个值是否相等
+ * @param newValue - 新值
+ * @param oldValue - 旧值
+ */
 export const isSameValue = (newValue: unknown, oldValue: unknown) =>
   JSON.stringify(newValue) === JSON.stringify(oldValue);
 
+/** 判断是否为移动设备 */
 export function isMobile() {
   if (typeof navigator === 'undefined' || typeof window === 'undefined') {
     return false;
   }
-
   const agent = navigator.userAgent || navigator.vendor || (window as any).opera;
   return (
     /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino|android|ipad|playbook|silk/i.test(

@@ -10,6 +10,11 @@ export function swap<T>(chars: T[], i: number, j: number): void {
   chars[j] = tmp;
 }
 
+/**
+ * 延迟执行一段时间
+ * @param time - 延迟的时间(毫秒)，默认为0
+ * @returns 返回一个Promise对象,在指定时间后resolve
+ */
 export function sleep(time = 0) {
   return new Promise<void>(resolve => {
     setTimeout(() => {

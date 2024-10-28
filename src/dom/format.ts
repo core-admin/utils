@@ -119,11 +119,38 @@ function convertVw(value: string) {
   return (+value * windowWidth) / 100;
 }
 
+/**
+ * 将vh单位转换为像素值
+ *
+ * @param {string} value - 包含vh单位的字符串值
+ * @returns {number} 转换后的像素值
+ *
+ * @description
+ * 此方法用于将vh（视口高度）单位转换为像素值。
+ * 它首先移除字符串中的'vh'，然后将剩余的数值乘以窗口高度的1%。
+ * 这个计算基于当前的窗口高度，因此结果会随着窗口大小的变化而变化。
+ */
 function convertVh(value: string) {
   value = value.replace(/vh/g, '');
   return (+value * windowHeight) / 100;
 }
 
+/**
+ * 将各种单位转换为像素值
+ * 
+ * @param {Numeric} value - 需要转换的值,可以是数字或包含单位(rem/vw/vh)的字符串
+ * @returns {number} 转换后的像素值
+ * 
+ * @description
+ * 此方法用于将不同单位的值统一转换为像素值:
+ * - 如果输入是数字,则直接返回
+ * - 如果输入是字符串:
+ *   - 包含rem单位,则转换为相对于根元素字体大小的像素值
+ *   - 包含vw单位,则转换为相对于视口宽度的像素值  
+ *   - 包含vh单位,则转换为相对于视口高度的像素值
+ *   - 其他情况则解析为浮点数返回
+ * 注意:rem/vw/vh的转换只在客户端环境下进行
+ */
 export function unitToPx(value: Numeric): number {
   if (typeof value === 'number') {
     return value;

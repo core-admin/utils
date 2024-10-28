@@ -2,6 +2,11 @@ import { isClient } from '../type';
 
 let scrollBarWidth: number;
 
+/**
+ * 获取滚动条宽度
+ * @param namespace - 命名空间，用于生成滚动条容器的类名
+ * @returns 滚动条宽度(像素)
+ */
 export function getScrollBarWidth(namespace: string): number {
   if (!isClient) return 0;
   if (scrollBarWidth !== undefined) return scrollBarWidth;
@@ -26,4 +31,14 @@ export function getScrollBarWidth(namespace: string): number {
   scrollBarWidth = widthNoScroll - widthWithScroll;
 
   return scrollBarWidth;
+}
+
+/**
+ * 检查页面底部是否可见（是否滚动到了底部）
+ */
+export function bottomVisible() {
+  return (
+    document.documentElement.clientHeight + window.scrollY >=
+    (document.documentElement.scrollHeight || document.documentElement.clientHeight)
+  );
 }

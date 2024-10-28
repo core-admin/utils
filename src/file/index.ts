@@ -1,3 +1,18 @@
+/**
+ * 格式化文件大小
+ *
+ * @param {number} [fileSize=0] - 文件大小（字节数）
+ * @returns {string} 返回格式化后的文件大小字符串，包含单位
+ *
+ * @description
+ * 此函数将文件字节大小转换为人类可读的格式。
+ * 支持的单位包括: B, KB, MB, GB, TB, PB, EB, ZB, YB
+ * 结果保留2位小数
+ *
+ * @example
+ * formatFileSize(1024) // 返回 "1.00 KB"
+ * formatFileSize(1234567) // 返回 "1.18 MB"
+ */
 export function formatFileSize(fileSize = 0) {
   if (fileSize === 0) {
     return '0 B';
@@ -54,6 +69,34 @@ export function getUrlFileNameAndType(fileName: string) {
 /**
  * 获取文件详细信息
  */
+/**
+ * 解析文件详细信息
+ *
+ * @param {File} file - 要解析的文件对象
+ * @returns {Object} 返回包含文件详细信息的对象
+ * @property {string} fileName - 文件名称（包含后缀名）
+ * @property {string} name - 文件名称（不包含后缀名）
+ * @property {string} fileSuffix - 文件后缀名（小写）
+ * @property {string} fileSuffixUpper - 文件后缀名（大写）
+ * @property {number} size - 文件大小（字节）
+ * @property {string} mime - 文件MIME类型
+ * @property {string} formatSize - 格式化后的文件大小（如：1.5MB）
+ * @property {File} raw - 原始文件对象
+ *
+ * @example
+ * const fileInfo = parseFileDetail(file);
+ * console.log(fileInfo);
+ * // {
+ * //   fileName: "example.txt",
+ * //   name: "example",
+ * //   fileSuffix: "txt",
+ * //   fileSuffixUpper: "TXT",
+ * //   size: 1024,
+ * //   mime: "text/plain",
+ * //   formatSize: "1.00KB",
+ * //   raw: File
+ * // }
+ */
 export function parseFileDetail(file: File) {
   const { name: fileName, size, type: mime } = file;
   const { name, type } = getUrlFileNameAndType(fileName);
@@ -78,7 +121,17 @@ type UrlFileInfo = {
 };
 
 /**
- * 根据url路径提取文件类型和文件名
+ * 从URL中提取文件信息
+ *
+ * @param {string} url - 包含文件的URL地址
+ * @returns {UrlFileInfo | null} 返回包含文件名、类型等信息的对象,如果无法解析则返回null
+ *
+ * @example
+ * extractFileInfoFromUrl('https://example.com/path/file.txt?param=1')
+ * // 返回 { type: 'txt', name: 'file', fileName: 'file.txt' }
+ *
+ * extractFileInfoFromUrl('https://example.com/invalid')
+ * // 返回 null
  */
 export function extractFileInfoFromUrl(url: string): UrlFileInfo | null {
   const matches = url.match(/\/([^/]+\.[^/?#]+)(\?.*)?(#.*)?$/);
@@ -105,9 +158,20 @@ export function isBase64File(str: string) {
   const regex = /^data:([a-zA-Z0-9]+\/[a-zA-Z0-9-.+]+);base64,.*$/;
   return regex.test(str);
 }
-
 /**
- * 将文件转换为base64
+ * 将文件或二进制数据转换为Base64字符串
+ *
+ * @param {File | Blob} file - 要转换的文件或二进制数据
+ * @returns {Promise<string>} 返回一个Promise，解析为文件的Base64字符串
+ *
+ * @description
+ * 此函数使用FileReader将文件或二进制数据读取为Data URL格式的Base64字符串。
+ * Data URL格式为: data:[<mediatype>][;base64],<data>
+ *
+ * @example
+ * const file = new File(['hello'], 'hello.txt', { type: 'text/plain' });
+ * const base64 = await fileToBase64Async(file);
+ * // base64 = "data:text/plain;base64,aGVsbG8="
  */
 export function fileToBase64Async(file: File | Blob) {
   return new Promise<string>((resolve, reject) => {

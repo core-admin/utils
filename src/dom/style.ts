@@ -129,6 +129,11 @@ export function setCssVariableValue<T extends string>(
   element.style.setProperty(key.startsWith('--') ? key : `--${key}`, value.trim());
 }
 
+/**
+ * 将类名字符串转换为类名数组
+ * @param {string} className - 要转换的类名字符串，多个类名用空格分隔
+ * @returns {string[]} 转换后的类名数组，过滤掉空白类名
+ */
 export function classNameToArray(className: string) {
   return className.split(' ').filter(t => !!t.trim());
 }

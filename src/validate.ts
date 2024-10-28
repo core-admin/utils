@@ -14,16 +14,17 @@ export function isIDCardNew(str: string) {
 
 /**
  * 验证是否是身份证号，支持一代和二代身份证号（15/18位）
+ * @param { string } value
  */
-/**
-@param { string } value
-*/
 export function isIDCard(str: string) {
   return /(^\d{8}(0\d|10|11|12)([0-2]\d|30|31)\d{3}$)|(^\d{6}(18|19|20)\d{2}(0\d|10|11|12)([0-2]\d|30|31)\d{3}(\d|X|x)$)/g.test(
     str,
   );
 }
 
+/**
+ * 验证是否是邮箱
+ */
 export function isEmailValid(address: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(address);
 }
