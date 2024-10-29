@@ -1,7 +1,7 @@
 {
   "name": "@hubxu/utils",
   "type": "module",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "private": false,
   "description": "Opinionated collection of common JavaScript TypeScript utils",
   "author": "Xuke <fslfsl.x@gmail.com>",
