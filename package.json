@@ -24,27 +24,45 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
+    },
+    "./vue": {
+      "types": "./dist/vue/index.d.ts",
+      "import": "./dist/vue/index.mjs",
+      "require": "./dist/vue/index.cjs"
+    },
+    "./react": {
+      "types": "./dist/react/index.d.ts",
+      "import": "./dist/react/index.mjs",
+      "require": "./dist/react/index.cjs"
     }
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "dist/vue",
+    "dist/react"
   ],
   "scripts": {
     "dev": "rollup -c -w",
-    "build": "rollup -c",
+    "build": "NODE_ENV=production rollup -c",
+    "build:dev": "NODE_ENV=development rollup -c",
+    "build:analyze": "NODE_ENV=production ANALYZE=true rollup -c",
     "prepublishOnly": "pnpm build",
     "release": "bumpp --commit --push --tag && npm publish",
     "start": "esno src/index.ts",
     "typecheck": "tsc --noEmit",
     "docs": "typedoc --options typedoc.json",
     "test": "vitest",
+    "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
-    "test:ui": "vitest --ui"
+    "build:watch": "rollup -c -w",
+    "dev:docs": "typedoc --watch"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-json": "^6.1.0",
@@ -55,14 +73,21 @@
     "@vitest/coverage-v8": "^2.1.4",
     "@vitest/ui": "^2.1.4",
     "bumpp": "^9.7.1",
+    "eslint": "^8.0.0",
+    "eslint-config-prettier": "^8.0.0",
     "esno": "^4.8.0",
+    "husky": "^8.0.0",
     "jsdom": "^25.0.1",
+    "lint-staged": "^13.0.0",
     "lodash-unified": "^1.0.3",
     "prettier": "^3.3.3",
     "rollup": "^4.24.0",
     "rollup-plugin-delete": "^2.1.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-esbuild": "^6.1.1",
+    "rollup-plugin-progress": "^1.1.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-visualizer": "^5.12.0",
     "typedoc": "0.24.8",
     "typedoc-plugin-markdown": "3.15.3",
     "typescript": "^5.6.3",
@@ -70,11 +95,12 @@
   },
   "dependencies": {
     "csstype": "^3.1.3",
-    "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "type-fest": "^4.26.1"
   },
   "peerDependencies": {
-    "lodash-unified": "^1.0.3"
+    "lodash-unified": "^1.0.3",
+    "react": "^18.0.0",
+    "vue": "^3.0.0"
   }
 }

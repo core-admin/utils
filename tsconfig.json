@@ -18,7 +18,12 @@
     "skipLibCheck": true,
     "types": [
       "vitest/globals"
-    ]
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
   "include": [
     "src/**/*.ts",
