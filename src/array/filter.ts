@@ -268,8 +268,3 @@ export function asymmetricDifferenceArrayObject<T extends Record<string, any>>(
 
   return arr1.filter(item1 => !arr2.some(item2 => compareFunction(item1, item2)));
 }
-
-const arr1 = [{ id: 1 }, { id: 2 }];
-const arr2 = [{ id: 2 }, { id: 3 }];
-
-console.log(symmetricDifferenceArrayObject(arr1, arr2, 'id'));

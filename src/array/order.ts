@@ -25,11 +25,12 @@ export function alphabeticalSort<T>(
   getter: (i: T) => string,
   order: 'asc' | 'desc' = 'asc',
 ) {
-  return arr.sort(
-    order === 'desc'
-      ? (a, b) => getter(b).localeCompare(getter(a))
-      : (a, b) => getter(a).localeCompare(getter(b)),
-  );
+  // 创建数组副本，避免修改原数组
+  return [...arr].sort((a, b) => {
+    const valA = getter(a) ?? ''; // 处理空值情况
+    const valB = getter(b) ?? '';
+    return order === 'desc' ? valB.localeCompare(valA, 'zh-CN') : valA.localeCompare(valB, 'zh-CN');
+  });
 }
 
 /**

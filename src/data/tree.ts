@@ -79,16 +79,24 @@ export function findTreeNodeAndPathByIdIterative<T extends Record<string, any>>(
 
   while (stack.length > 0) {
     const { node, path } = stack.pop()!;
+
     if (node.id === id) {
-      return { node: node, path };
+      // 找到目标节点，返回节点和路径
+      return { node, path };
     }
-    for (const child of node.children) {
-      const currentPath = { node: child, path: [...path, node] };
-      currentPath.node.children && delete currentPath.node.children;
-      stack.push();
+
+    if (node.children?.length) {
+      // 将子节点加入栈中，同时更新路径
+      for (const child of node.children) {
+        stack.push({
+          node: child,
+          path: [...path, node], // 将当前节点加入路径
+        });
+      }
     }
   }
 
+  // 未找到节点，返回空结果
   return { node: null, path: [] };
 }
 
@@ -107,7 +115,7 @@ export function findTreeNodeByKeyValueIterative<T extends Record<string, any>>(
     if (node[key] === value) {
       return node;
     }
-    if (node.children) {
+    if (node.children?.length) {
       for (const child of node.children) {
         stack.push(child);
       }
@@ -131,7 +139,7 @@ export function findTreeNodeIterative<T extends Record<string, any>>(
     if (cb(node)) {
       return node;
     }
-    if (node.children) {
+    if (node.children?.length) {
       for (const child of node.children) {
         stack.push(child);
       }
