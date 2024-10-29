@@ -85,7 +85,7 @@ Re-exports [toTitleCase](string_convert_name.md#totitlecase)
 
 #### Defined in
 
-src/string/index.ts:44
+[src/string/index.ts:44](https://github.com/core-admin/utils/blob/48a655a/src/string/index.ts#L44)
 
 ___
 
@@ -107,7 +107,7 @@ ___
 
 #### Defined in
 
-src/string/index.ts:21
+[src/string/index.ts:21](https://github.com/core-admin/utils/blob/48a655a/src/string/index.ts#L21)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-src/string/index.ts:7
+[src/string/index.ts:7](https://github.com/core-admin/utils/blob/48a655a/src/string/index.ts#L7)
 
 ___
 
@@ -158,7 +158,7 @@ removeNonASCII('äÄçÇéÉêlorem-ipsumöÖÐþúÚ'); // 'lorem-ipsum'
 
 #### Defined in
 
-src/string/index.ts:29
+[src/string/index.ts:29](https://github.com/core-admin/utils/blob/48a655a/src/string/index.ts#L29)
 
 ___
 
@@ -180,7 +180,7 @@ ___
 
 #### Defined in
 
-src/string/index.ts:14
+[src/string/index.ts:14](https://github.com/core-admin/utils/blob/48a655a/src/string/index.ts#L14)
 
 ___
 
@@ -208,4 +208,4 @@ tripHTMLTags('<p><em>lorem</em> <strong>ipsum</strong></p>'); // 'lorem ipsum'
 
 #### Defined in
 
-src/string/index.ts:37
+[src/string/index.ts:37](https://github.com/core-admin/utils/blob/48a655a/src/string/index.ts#L37)

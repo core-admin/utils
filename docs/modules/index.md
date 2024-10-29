@@ -12,6 +12,8 @@
 - [addUnit](index.md#addunit)
 - [allDistinct](index.md#alldistinct)
 - [alphabeticalSort](index.md#alphabeticalsort)
+- [asymmetricDifferenceArrayBase](index.md#asymmetricdifferencearraybase)
+- [asymmetricDifferenceArrayObject](index.md#asymmetricdifferencearrayobject)
 - [attemptFocus](index.md#attemptfocus)
 - [averageArray](index.md#averagearray)
 - [base64ToBlob](index.md#base64toblob)
@@ -24,6 +26,8 @@
 - [contains](index.md#contains)
 - [containsWhitespace](index.md#containswhitespace)
 - [convertCase](index.md#convertcase)
+- [differenceArrayBase](index.md#differencearraybase)
+- [differenceArrayObject](index.md#differencearrayobject)
 - [divideNumber](index.md#dividenumber)
 - [entriesOf](index.md#entriesof)
 - [escapeHtml](index.md#escapehtml)
@@ -61,6 +65,8 @@
 - [hackCss](index.md#hackcss)
 - [hasClass](index.md#hasclass)
 - [hasDuplicates](index.md#hasduplicates)
+- [intersectionArrayBase](index.md#intersectionarraybase)
+- [intersectionArrayObject](index.md#intersectionarrayobject)
 - [is](index.md#is)
 - [isArray](index.md#isarray)
 - [isBase64File](index.md#isbase64file)
@@ -135,6 +141,8 @@
 - [sumArray](index.md#sumarray)
 - [supportsPassive](index.md#supportspassive)
 - [swap](index.md#swap)
+- [symmetricDifferenceArrayBase](index.md#symmetricdifferencearraybase)
+- [symmetricDifferenceArrayObject](index.md#symmetricdifferencearrayobject)
 - [templateDataReplace](index.md#templatedatareplace)
 - [toCamelCase](index.md#tocamelcase)
 - [toKebabCase](index.md#tokebabcase)
@@ -144,6 +152,8 @@
 - [toTitleCase](index.md#totitlecase)
 - [triggerEvent](index.md#triggerevent)
 - [unescapeHtml](index.md#unescapehtml)
+- [unionArrayBase](index.md#unionarraybase)
+- [unionArrayObject](index.md#unionarrayobject)
 - [uniqueElementsBy](index.md#uniqueelementsby)
 - [uniquePrimitiveElements](index.md#uniqueprimitiveelements)
 - [unitToPx](index.md#unittopx)
@@ -182,7 +192,19 @@ ___
 
 ### alphabeticalSort
 
-Re-exports [alphabeticalSort](array.md#alphabeticalsort)
+Re-exports [alphabeticalSort](array_order.md#alphabeticalsort)
+
+___
+
+### asymmetricDifferenceArrayBase
+
+Re-exports [asymmetricDifferenceArrayBase](array_filter.md#asymmetricdifferencearraybase)
+
+___
+
+### asymmetricDifferenceArrayObject
+
+Re-exports [asymmetricDifferenceArrayObject](array_filter.md#asymmetricdifferencearrayobject)
 
 ___
 
@@ -255,6 +277,18 @@ ___
 ### convertCase
 
 Re-exports [convertCase](string_convert_name.md#convertcase)
+
+___
+
+### differenceArrayBase
+
+Re-exports [differenceArrayBase](array_filter.md#differencearraybase)
+
+___
+
+### differenceArrayObject
+
+Re-exports [differenceArrayObject](array_filter.md#differencearrayobject)
 
 ___
 
@@ -477,6 +511,18 @@ ___
 ### hasDuplicates
 
 Re-exports [hasDuplicates](array.md#hasduplicates)
+
+___
+
+### intersectionArrayBase
+
+Re-exports [intersectionArrayBase](array_filter.md#intersectionarraybase)
+
+___
+
+### intersectionArrayObject
+
+Re-exports [intersectionArrayObject](array_filter.md#intersectionarrayobject)
 
 ___
 
@@ -740,7 +786,7 @@ ___
 
 ### orderBy
 
-Re-exports [orderBy](array.md#orderby)
+Re-exports [orderBy](array_order.md#orderby)
 
 ___
 
@@ -788,7 +834,7 @@ ___
 
 ### quickSort
 
-Re-exports [quickSort](array.md#quicksort)
+Re-exports [quickSort](array_order.md#quicksort)
 
 ___
 
@@ -924,6 +970,18 @@ Re-exports [swap](helper.md#swap)
 
 ___
 
+### symmetricDifferenceArrayBase
+
+Re-exports [symmetricDifferenceArrayBase](array_filter.md#symmetricdifferencearraybase)
+
+___
+
+### symmetricDifferenceArrayObject
+
+Re-exports [symmetricDifferenceArrayObject](array_filter.md#symmetricdifferencearrayobject)
+
+___
+
 ### templateDataReplace
 
 Re-exports [templateDataReplace](dom_html.md#templatedatareplace)
@@ -975,6 +1033,18 @@ ___
 ### unescapeHtml
 
 Re-exports [unescapeHtml](dom_html.md#unescapehtml)
+
+___
+
+### unionArrayBase
+
+Re-exports [unionArrayBase](array_filter.md#unionarraybase)
+
+___
+
+### unionArrayObject
+
+Re-exports [unionArrayObject](array_filter.md#unionarrayobject)
 
 ___
 

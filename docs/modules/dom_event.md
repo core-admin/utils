@@ -59,7 +59,7 @@ listener.remove();
 
 #### Defined in
 
-src/dom/event.ts:29
+[src/dom/event.ts:29](https://github.com/core-admin/utils/blob/48a655a/src/dom/event.ts#L29)
 
 ___
 
@@ -81,7 +81,7 @@ ___
 
 #### Defined in
 
-src/dom/event.ts:87
+[src/dom/event.ts:87](https://github.com/core-admin/utils/blob/48a655a/src/dom/event.ts#L87)
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 #### Defined in
 
-src/dom/event.ts:77
+[src/dom/event.ts:77](https://github.com/core-admin/utils/blob/48a655a/src/dom/event.ts#L77)
 
 ___
 
@@ -140,7 +140,7 @@ onceEvent(button, 'click', () => {
 
 #### Defined in
 
-src/dom/event.ts:68
+[src/dom/event.ts:68](https://github.com/core-admin/utils/blob/48a655a/src/dom/event.ts#L68)
 
 ___
 
@@ -184,4 +184,4 @@ triggerEvent(element, 'custom-event', true, false);
 
 #### Defined in
 
-src/dom/event.ts:117
+[src/dom/event.ts:117](https://github.com/core-admin/utils/blob/48a655a/src/dom/event.ts#L117)

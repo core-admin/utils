@@ -23,7 +23,7 @@
 
 #### Defined in
 
-src/dom/scroll.ts:39
+[src/dom/scroll.ts:39](https://github.com/core-admin/utils/blob/48a655a/src/dom/scroll.ts#L39)
 
 ___
 
@@ -47,4 +47,4 @@ ___
 
 #### Defined in
 
-src/dom/scroll.ts:10
+[src/dom/scroll.ts:10](https://github.com/core-admin/utils/blob/48a655a/src/dom/scroll.ts#L10)

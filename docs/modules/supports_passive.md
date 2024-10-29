@@ -23,4 +23,4 @@ passive event listeners 是一种性能优化技术，特别是对于触摸和�
 
 #### Defined in
 
-src/supports-passive.ts:9
+[src/supports-passive.ts:9](https://github.com/core-admin/utils/blob/48a655a/src/supports-passive.ts#L9)

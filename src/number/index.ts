@@ -75,21 +75,32 @@ function trimExtraChar(value: string, char: string, regExp: RegExp) {
  * formatNumber('123.456', true, false) // 返回 '123.456'
  */
 export function formatNumber(value: string, allowDot = true, allowMinus = true) {
+  // 先处理负号
+  if (allowMinus) {
+    value = trimExtraChar(value, '-', /-/g);
+  } else {
+    value = value.replace(/-/g, '');
+  }
+
+  // 再处理小数点
   if (allowDot) {
-    value = trimExtraChar(value, '.', /\./g);
+    // 修改这部分逻辑，只保留第一个小数点
+    const parts = value.split('.');
+    value = parts[0] + (parts.length > 1 ? '.' + parts[1] : '');
   } else {
     value = value.split('.')[0];
   }
 
-  if (allowMinus) {
-    value = trimExtraChar(value, '-', /-/g);
-  } else {
-    value = value.replace(/-/, '');
-  }
-
+  // 最后移除所有其他非法字符
   const regExp = allowDot ? /[^-0-9.]/g : /[^-0-9]/g;
-
   return value.replace(regExp, '');
+}
+
+// 获取数字的指数部分
+function getExponent(num: number): number {
+  const str = num.toExponential();
+  const match = str.match(/e([+-]\d+)$/);
+  return match ? parseInt(match[1]) : 0;
 }
 
 /**
@@ -107,8 +118,19 @@ export function formatNumber(value: string, allowDot = true, allowMinus = true) 
  * addNumber(1.23e-10, 4.56e-10) // 返回 5.79e-10
  */
 export function addNumber(num1: number, num2: number) {
-  const cardinal = 10 ** 10;
-  return Math.round((num1 + num2) * cardinal) / cardinal;
+  // 获取两个数字中最小数的指数
+  const exp1 = getExponent(num1);
+  const exp2 = getExponent(num2);
+  const minExp = Math.min(exp1, exp2);
+
+  if (minExp < -9) {
+    // 对于非常小的数字（科学计数法），直接相加
+    return num1 + num2;
+  } else {
+    // 对于普通小数，使用固定精度
+    const cardinal = 10 ** 10;
+    return Math.round((num1 + num2) * cardinal) / cardinal;
+  }
 }
 
 /**

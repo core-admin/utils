@@ -34,4 +34,4 @@
 
 #### Defined in
 
-src/dom/contains.ts:11
+[src/dom/contains.ts:11](https://github.com/core-admin/utils/blob/48a655a/src/dom/contains.ts#L11)

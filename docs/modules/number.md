@@ -47,7 +47,7 @@ addNumber(1.23e-10, 4.56e-10) // 返回 5.79e-10
 
 #### Defined in
 
-src/number/index.ts:109
+[src/number/index.ts:120](https://github.com/core-admin/utils/blob/48a655a/src/number/index.ts#L120)
 
 ___
 
@@ -81,7 +81,7 @@ clamp(50, 0, 100) // 返回 50
 
 #### Defined in
 
-src/number/index.ts:35
+[src/number/index.ts:35](https://github.com/core-admin/utils/blob/48a655a/src/number/index.ts#L35)
 
 ___
 
@@ -112,7 +112,7 @@ divideNumber(0.3, 0.1) // 返回 3，而不是 2.9999999999999996
 
 #### Defined in
 
-src/number/index.ts:154
+[src/number/index.ts:176](https://github.com/core-admin/utils/blob/48a655a/src/number/index.ts#L176)
 
 ___
 
@@ -149,7 +149,7 @@ formatNumber('123.456', true, false) // 返回 '123.456'
 
 #### Defined in
 
-src/number/index.ts:77
+[src/number/index.ts:77](https://github.com/core-admin/utils/blob/48a655a/src/number/index.ts#L77)
 
 ___
 
@@ -180,7 +180,7 @@ multiplyNumber(0.1, 0.2) // 返回 0.02，而不是 0.020000000000000004
 
 #### Defined in
 
-src/number/index.ts:124
+[src/number/index.ts:146](https://github.com/core-admin/utils/blob/48a655a/src/number/index.ts#L146)
 
 ___
 
@@ -212,7 +212,7 @@ padZero(42) // 返回 "42"
 
 #### Defined in
 
-src/number/index.ts:14
+[src/number/index.ts:14](https://github.com/core-admin/utils/blob/48a655a/src/number/index.ts#L14)
 
 ___
 
@@ -243,4 +243,4 @@ subtractNumber(0.3, 0.2) // 返回 0.1，而不是 0.09999999999999998
 
 #### Defined in
 
-src/number/index.ts:139
+[src/number/index.ts:161](https://github.com/core-admin/utils/blob/48a655a/src/number/index.ts#L161)

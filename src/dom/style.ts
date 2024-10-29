@@ -15,11 +15,10 @@ const trim = (string: string) => (string || '').replace(/^\s+|\s+$/g, '');
 export function hasClass(el: Element, cls: string) {
   if (!el || !cls) return false;
   if (cls.includes(' ')) throw new Error('className should not contain space.');
-  if (el.classList) {
+  if (el.classList?.contains) {
     return el.classList.contains(cls);
-  } else {
-    return ` ${el.className} `.includes(` ${cls} `);
   }
+  return ` ${el.className} `.includes(` ${cls} `);
 }
 
 /**
@@ -29,22 +28,20 @@ export function hasClass(el: Element, cls: string) {
  */
 export function addClass(el: Element, cls: string) {
   if (!el) return;
+  const classes = (cls || '').split(' ').filter(Boolean);
+
+  if (el.classList?.add) {
+    classes.forEach(className => el.classList.add(className));
+    return;
+  }
+
   let curClass = el.className;
-  const classes = (cls || '').split(' ');
-
-  for (let i = 0, j = classes.length; i < j; i++) {
-    const clsName = classes[i];
-    if (!clsName) continue;
-
-    if (el.classList) {
-      el.classList.add(clsName);
-    } else if (!hasClass(el, clsName)) {
-      curClass += ` ${clsName}`;
+  for (const className of classes) {
+    if (!hasClass(el, className)) {
+      curClass += ` ${className}`;
     }
   }
-  if (!el.classList) {
-    el.className = curClass;
-  }
+  el.className = curClass.trim();
 }
 
 /**
@@ -54,22 +51,20 @@ export function addClass(el: Element, cls: string) {
  */
 export function removeClass(el: Element, cls: string) {
   if (!el || !cls) return;
-  const classes = cls.split(' ');
+  const classes = cls.split(' ').filter(Boolean);
+
+  if (el.classList?.remove) {
+    classes.forEach(className => el.classList.remove(className));
+    return;
+  }
+
   let curClass = ` ${el.className} `;
-
-  for (let i = 0, j = classes.length; i < j; i++) {
-    const clsName = classes[i];
-    if (!clsName) continue;
-
-    if (el.classList) {
-      el.classList.remove(clsName);
-    } else if (hasClass(el, clsName)) {
-      curClass = curClass.replace(` ${clsName} `, ' ');
+  for (const className of classes) {
+    if (hasClass(el, className)) {
+      curClass = curClass.replace(` ${className} `, ' ');
     }
   }
-  if (!el.classList) {
-    el.className = trim(curClass);
-  }
+  el.className = trim(curClass);
 }
 
 /**

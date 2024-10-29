@@ -47,7 +47,7 @@
 
 #### Defined in
 
-src/data/tree.ts:37
+[src/data/tree.ts:37](https://github.com/core-admin/utils/blob/48a655a/src/data/tree.ts#L37)
 
 ___
 
@@ -98,7 +98,7 @@ console.log(parentNode); // 输出: { id: 1, children: [...] }
 
 #### Defined in
 
-src/data/tree.ts:167
+[src/data/tree.ts:167](https://github.com/core-admin/utils/blob/48a655a/src/data/tree.ts#L167)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-src/data/tree.ts:74
+[src/data/tree.ts:74](https://github.com/core-admin/utils/blob/48a655a/src/data/tree.ts#L74)
 
 ___
 
@@ -157,7 +157,7 @@ ___
 
 #### Defined in
 
-src/data/tree.ts:98
+[src/data/tree.ts:98](https://github.com/core-admin/utils/blob/48a655a/src/data/tree.ts#L98)
 
 ___
 
@@ -186,7 +186,7 @@ ___
 
 #### Defined in
 
-src/data/tree.ts:123
+[src/data/tree.ts:123](https://github.com/core-admin/utils/blob/48a655a/src/data/tree.ts#L123)
 
 ___
 
@@ -214,4 +214,4 @@ ___
 
 #### Defined in
 
-src/data/tree.ts:4
+[src/data/tree.ts:4](https://github.com/core-admin/utils/blob/48a655a/src/data/tree.ts#L4)

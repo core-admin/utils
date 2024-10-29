@@ -33,7 +33,7 @@
 
 #### Defined in
 
-src/dom/format.ts:64
+[src/dom/format.ts:64](https://github.com/core-admin/utils/blob/48a655a/src/dom/format.ts#L64)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-src/dom/format.ts:25
+[src/dom/format.ts:25](https://github.com/core-admin/utils/blob/48a655a/src/dom/format.ts#L25)
 
 ___
 
@@ -99,4 +99,4 @@ ___
 
 #### Defined in
 
-src/dom/format.ts:154
+[src/dom/format.ts:154](https://github.com/core-admin/utils/blob/48a655a/src/dom/format.ts#L154)

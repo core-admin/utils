@@ -25,7 +25,7 @@
 
 #### Defined in
 
-src/bom/index.ts:4
+[src/bom/index.ts:4](https://github.com/core-admin/utils/blob/48a655a/src/bom/index.ts#L4)
 
 ___
 
@@ -50,7 +50,7 @@ ___
 
 #### Defined in
 
-src/bom/index.ts:25
+[src/bom/index.ts:25](https://github.com/core-admin/utils/blob/48a655a/src/bom/index.ts#L25)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-src/bom/index.ts:11
+[src/bom/index.ts:11](https://github.com/core-admin/utils/blob/48a655a/src/bom/index.ts#L11)
 
 ___
 
@@ -82,4 +82,4 @@ ___
 
 #### Defined in
 
-src/bom/index.ts:18
+[src/bom/index.ts:18](https://github.com/core-admin/utils/blob/48a655a/src/bom/index.ts#L18)

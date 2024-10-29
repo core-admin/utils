@@ -46,7 +46,7 @@ convertCase('mixed_string with spaces_underscores-and-hyphens', 'sentence'); // 
 
 #### Defined in
 
-src/string/convert-name.ts:117
+[src/string/convert-name.ts:117](https://github.com/core-admin/utils/blob/48a655a/src/string/convert-name.ts#L117)
 
 ___
 
@@ -77,7 +77,7 @@ toCamelCase('some-mixed_string with spaces_underscores-and-hyphens'); // 'someMi
 
 #### Defined in
 
-src/string/convert-name.ts:11
+[src/string/convert-name.ts:11](https://github.com/core-admin/utils/blob/48a655a/src/string/convert-name.ts#L11)
 
 ___
 
@@ -110,7 +110,7 @@ toKebabCase('IAmEditingSomeXMLAndHTML'); 'i-am-editing-some-xml-and-html'
 
 #### Defined in
 
-src/string/convert-name.ts:46
+[src/string/convert-name.ts:46](https://github.com/core-admin/utils/blob/48a655a/src/string/convert-name.ts#L46)
 
 ___
 
@@ -141,7 +141,7 @@ toPascalCase('some-mixed_string with spaces_underscores-and-hyphens'); // 'SomeM
 
 #### Defined in
 
-src/string/convert-name.ts:28
+[src/string/convert-name.ts:28](https://github.com/core-admin/utils/blob/48a655a/src/string/convert-name.ts#L28)
 
 ___
 
@@ -173,7 +173,7 @@ toSentenceCase('some-mixed_string with spaces_underscores-and-hyphens'); // 'Som
 
 #### Defined in
 
-src/string/convert-name.ts:98
+[src/string/convert-name.ts:98](https://github.com/core-admin/utils/blob/48a655a/src/string/convert-name.ts#L98)
 
 ___
 
@@ -206,7 +206,7 @@ toSnakeCase('IAmEditingSomeXMLAndHTML'); // 'i_am_editing_some_xml_and_html'
 
 #### Defined in
 
-src/string/convert-name.ts:64
+[src/string/convert-name.ts:64](https://github.com/core-admin/utils/blob/48a655a/src/string/convert-name.ts#L64)
 
 ___
 
@@ -238,4 +238,4 @@ toTitleCase('some-mixed_string with spaces_underscores-and-hyphens'); // 'Some M
 
 #### Defined in
 
-src/string/convert-name.ts:81
+[src/string/convert-name.ts:81](https://github.com/core-admin/utils/blob/48a655a/src/string/convert-name.ts#L81)

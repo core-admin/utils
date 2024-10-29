@@ -28,7 +28,7 @@
 
 #### Defined in
 
-src/url/index.ts:25
+[src/url/index.ts:25](https://github.com/core-admin/utils/blob/48a655a/src/url/index.ts#L25)
 
 ___
 
@@ -44,7 +44,7 @@ http跳转到https
 
 #### Defined in
 
-src/url/index.ts:58
+[src/url/index.ts:59](https://github.com/core-admin/utils/blob/48a655a/src/url/index.ts#L59)
 
 ___
 
@@ -75,4 +75,4 @@ eg:
 
 #### Defined in
 
-src/url/index.ts:16
+[src/url/index.ts:16](https://github.com/core-admin/utils/blob/48a655a/src/url/index.ts#L16)
