@@ -1,3 +1,5 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
@@ -12,27 +14,39 @@ import progress from 'rollup-plugin-progress';
 const isProd = process.env.NODE_ENV === 'production';
 const isAnalyze = process.env.ANALYZE === 'true';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const basePlugins = [
-  alias({
-    entries: [{ find: /^node:(.+)$/, replacement: '$1' }],
-  }),
   resolve({
     preferBuiltins: true,
+    extensions: ['.ts', '.js', '.mjs', '.json'],
+    moduleDirectories: ['node_modules', 'src'],
+    verbose: true,
+  }),
+  alias({
+    entries: [
+      { find: /^node:(.+)$/, replacement: '$1' },
+      // {
+      //   find: '@hubxu/utils',
+      //   replacement: path.resolve(__dirname, 'src'),
+      // },
+    ],
   }),
   json(),
   commonjs(),
   esbuild({
     target: 'es2015',
   }),
-  terser({
-    compress: {
-      drop_console: false,
-      pure_funcs: ['console.log'],
-    },
-    format: {
-      comments: true,
-    },
-  }),
+  // terser({
+  //   compress: {
+  //     drop_console: false,
+  //     pure_funcs: ['console.log'],
+  //   },
+  //   format: {
+  //     comments: true,
+  //   },
+  // }),
   progress({
     clearLine: false,
   }),
@@ -52,7 +66,7 @@ const createConfig = (input, output, external = [], isMain = false) => ({
     ...out,
     sourcemap: !isProd,
   })),
-  external: [...external, 'lodash', 'lodash-es'],
+  external: [...external, 'lodash', 'lodash-es', '@hubxu/utils'],
   plugins: [...(isMain ? [del({ targets: 'dist/**/*', force: true })] : []), ...basePlugins],
 });
 

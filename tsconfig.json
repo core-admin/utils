@@ -20,8 +20,8 @@
       "vitest/globals"
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
+      "@hubxu/utils": [
+        "./src/index.ts"
       ]
     }
   },
