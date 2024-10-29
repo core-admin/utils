@@ -15,7 +15,7 @@
  */
 export function formatFileSize(fileSize = 0) {
   if (fileSize === 0) {
-    return '0 B';
+    return '0B';
   }
 
   const unitArr = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
@@ -184,17 +184,41 @@ export function fileToBase64Async(file: File | Blob) {
   });
 }
 
-export function base64ToBlob(base64Buf: string): Blob {
-  const arr = base64Buf.split(',');
-  const typeItem = arr[0];
-  const mime = typeItem.match(/:(.*?);/)![1];
-  const bstr = window.atob(arr[1]);
-  let n = bstr.length;
-  const u8arr = new Uint8Array(n);
-  while (n--) {
-    u8arr[n] = bstr.charCodeAt(n);
+export function base64ToBlob(base64: string, mime?: string): Blob | null {
+  // 检查 Base64 字符串的有效性
+  if (typeof base64 !== 'string' || !base64) {
+    console.error('Invalid Base64 string.');
+    return null;
   }
-  return new Blob([u8arr], { type: mime });
+
+  // 检查是否包含数据头，并提取纯 Base64 部分
+  const base64Regex = /^data:(.+);base64,(.+)$/;
+  const matches = base64.match(base64Regex);
+
+  if (matches) {
+    // 如果传入了 mime，则优先使用传入的 mime
+    mime = mime || matches[1]; // 更新 MIME 类型
+    base64 = matches[2]; // 获取纯 Base64 数据
+  } else if (!mime) {
+    // 如果没有传入 mime 且没有数据头，则使用默认值
+    mime = 'application/octet-stream';
+  }
+
+  // 解码 Base64 字符串
+  try {
+    const byteCharacters = atob(base64);
+    const byteNumbers = new Array(byteCharacters.length);
+
+    for (let i = 0; i < byteCharacters.length; i++) {
+      byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: mime });
+  } catch (error) {
+    console.error('Failed to convert Base64 to Blob:', error);
+    return null;
+  }
 }
 
 const isImageFileType = (type: string): boolean => type.indexOf('image/') === 0;

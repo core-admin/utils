@@ -49,6 +49,7 @@
     "@rollup/plugin-commonjs": "^28.0.1",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.3.0",
+    "@testing-library/dom": "^10.4.0",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^22.7.9",
     "@vitest/coverage-v8": "^2.1.4",

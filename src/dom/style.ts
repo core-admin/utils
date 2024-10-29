@@ -78,11 +78,11 @@ export function hackCss(attr: string, value: string) {
 
   const styleObj: any = {};
   prefix.forEach(item => {
-    styleObj[`-${toKebabCase(`${item}-${attr}`)}`] = value;
+    styleObj[`-${item.toLowerCase()}-${attr}`] = value;
   });
   return {
     ...styleObj,
-    [attr]: toKebabCase(value),
+    [attr]: value,
   };
 }
 
@@ -189,7 +189,7 @@ export function setStyle(
  * @param {keyof CSSProperties | CSSProperties} style - 要移除的样式名称或样式对象
  * @returns {void}
  */
-export function removeStyle(element: HTMLElement, style: keyof CSSProperties) {
+export function removeStyle(element: HTMLElement, style: keyof CSSProperties | CSSProperties) {
   if (!element || !style) return;
 
   if (isObject(style)) {
@@ -203,7 +203,7 @@ export function removeStyle(element: HTMLElement, style: keyof CSSProperties) {
  * 将CSSStyleDeclaration对象转换为样式字符串
  *
  * 此方法用于处理Firefox和Chrome之间的行为差异，
- * 将给定的CSSStyleDeclaration对象转换为一个格式化的CSS样式字符串。
+ * 将给定的CSSStyleDeclaration对象转换为一个格式化的CSS���式字符串。
  *
  * @param {CSSStyleDeclaration} style - 要转换的CSSStyleDeclaration对象
  * @returns {string} 格式化的CSS样式字符串
@@ -241,14 +241,14 @@ export function styleToString(style: CSSStyleDeclaration) {
  * const styleString = styleObjectToString(styleObject);
  * >>> color: red; font-size: 16px; margin: 10px;
  */
-export function styleObjectToString(style: Record<string, string>) {
+export function styleObjectToString(style: CSSProperties | Record<any, any>) {
   return Object.keys(style).reduce((acc, name) => {
-    const styleValue = style[name];
+    const styleValue = style[name as keyof CSSProperties];
     if (typeof styleValue === 'undefined' || styleValue === null) {
       return acc;
     }
 
-    acc += `${name}: ${style[name]};`;
+    acc += `${name}: ${styleValue};`;
     return acc;
   }, '');
 }

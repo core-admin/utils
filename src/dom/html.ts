@@ -29,12 +29,12 @@
  */
 export function extractImgSrc(
   html: string,
-  callback?: (
-    imgDomString: string,
-    src: string,
-    index: number,
-    attrs: Record<any, any>,
-  ) => undefined | string,
+  callback?: (cbParams: {
+    imgDomString: string;
+    src: string;
+    index: number;
+    attrs: Record<any, any>;
+  }) => undefined | string | void,
 ) {
   const regex = /<img.*?(?=\ssrc="(.*?)").*?(?<=\ssrc="(.*?)").*?>/g;
   let matches;
@@ -51,7 +51,7 @@ export function extractImgSrc(
         return '';
       },
     );
-    const replacement = callback?.(imgTag, src, index, attrs);
+    const replacement = callback?.({ imgDomString: imgTag, src, index, attrs });
     if (replacement !== undefined) {
       result = result.replace(imgTag, imgTag.replace(src, replacement));
     }
@@ -148,7 +148,7 @@ export function getCharLength(str: string) {
 
   return Array.from(str).filter(char => {
     return !containsInvisibleCharacters(char) && char !== '';
-  });
+  }).length;
 }
 
 /**

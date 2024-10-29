@@ -118,7 +118,7 @@ export function isRegExp(value: unknown): value is RegExp {
  */
 export function isPromise(value: unknown): value is Promise<unknown> {
   return (
-    (isObject(value) || isFunction(value)) &&
+    (value instanceof Promise || isFunction(value)) &&
     isFunction((value as any).then) &&
     isFunction((value as any).catch)
   );

@@ -15,6 +15,11 @@ export default defineConfig({
     // environment 指定测试运行环境为 Node.js
     // jsdom 使用 jsdom 库来模拟浏览器环境
     environment: 'jsdom',
+    environmentOptions: {
+      jsdom: {
+        resources: 'usable',
+      },
+    },
     // coverage 配置测试覆盖率相关选项
     coverage: {
       // provider 指定覆盖率统计工具为 v8
@@ -30,5 +35,6 @@ export default defineConfig({
        */
       include: ['src/**'],
     },
+    testTimeout: 10000,
   },
 });

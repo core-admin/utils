@@ -20,7 +20,7 @@ interface FormatLengthOptions {
  * @param {number} options.offset - 添加到长度值的偏移量，默认为0。
  * @param {boolean} options.attachPx - 是否在结果后附加'px'，默认为true。
  *
- * @returns {T} 格式化后的长度值。如果输入是数字或可以解析为数字的字符串，返回的将是字符串。否则，返回的将是输入的原始值。
+ * @returns {T} 格式化后的长度值。如果输入是数字或可以解析为数字的字符串，返回的将是字符串。否则，返回的将是输入的原始值���
  */
 export function formatStyleLength<T extends number | string | null | undefined | any>(
   length: T,
@@ -101,8 +101,6 @@ function convertRem(value: string) {
   return +value * getRootFontSize();
 }
 
-const { width: windowWidth, height: windowHeight } = getClientSize();
-
 /**
  * 将vw单位转换为像素值
  *
@@ -115,6 +113,7 @@ const { width: windowWidth, height: windowHeight } = getClientSize();
  * 这个计算基于当前的窗口宽度，因此结果会随着窗口大小的变化而变化。
  */
 function convertVw(value: string) {
+  const { width: windowWidth } = getClientSize();
   value = value.replace(/vw/g, '');
   return (+value * windowWidth) / 100;
 }
@@ -131,22 +130,23 @@ function convertVw(value: string) {
  * 这个计算基于当前的窗口高度，因此结果会随着窗口大小的变化而变化。
  */
 function convertVh(value: string) {
+  const { height: windowHeight } = getClientSize();
   value = value.replace(/vh/g, '');
   return (+value * windowHeight) / 100;
 }
 
 /**
  * 将各种单位转换为像素值
- * 
+ *
  * @param {Numeric} value - 需要转换的值,可以是数字或包含单位(rem/vw/vh)的字符串
  * @returns {number} 转换后的像素值
- * 
+ *
  * @description
  * 此方法用于将不同单位的值统一转换为像素值:
  * - 如果输入是数字,则直接返回
  * - 如果输入是字符串:
  *   - 包含rem单位,则转换为相对于根元素字体大小的像素值
- *   - 包含vw单位,则转换为相对于视口宽度的像素值  
+ *   - 包含vw单位,则转换为相对于视口宽度的像素值
  *   - 包含vh单位,则转换为相对于视口高度的像素值
  *   - 其他情况则解析为浮点数返回
  * 注意:rem/vw/vh的转换只在客户端环境下进行
